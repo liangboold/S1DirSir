@@ -1,3 +1,4 @@
 rootProject.name = "S1DirSir"
 include ':app'
 include ':Net'
+include ':ARouter'
