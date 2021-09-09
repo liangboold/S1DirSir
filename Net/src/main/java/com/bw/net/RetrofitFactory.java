@@ -6,6 +6,7 @@ import android.util.Log;
 import androidx.lifecycle.LiveData;
 
 import com.bw.net.api.TokenApi;
+import com.bw.net.common.BaseConstant;
 import com.bw.net.common.Config;
 import com.bw.net.protocol.BaseRespEntry;
 import com.bw.net.protocol.TokenRespEntry;
@@ -57,7 +58,7 @@ public class RetrofitFactory {
 
     public Retrofit createRetrofit() {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("")
+                .baseUrl(BaseConstant.SERVER_ADDRESS)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addCallAdapterFactory(LiveDataCallAdapterFactory.create())
