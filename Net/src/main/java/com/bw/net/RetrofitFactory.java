@@ -3,17 +3,12 @@ package com.bw.net;
 import android.text.TextUtils;
 import android.util.Log;
 
-import androidx.lifecycle.LiveData;
-
 import com.bw.net.api.TokenApi;
-import com.bw.net.common.BaseConstant;
 import com.bw.net.common.Config;
-import com.bw.net.protocol.BaseRespEntry;
 import com.bw.net.protocol.TokenRespEntry;
 import com.bw.net.retrofit.LiveDataCallAdapterFactory;
 
 import java.io.IOException;
-import java.lang.reflect.Type;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.Interceptor;
@@ -22,7 +17,6 @@ import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
-import retrofit2.CallAdapter;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -58,7 +52,7 @@ public class RetrofitFactory {
 
     public Retrofit createRetrofit() {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(BaseConstant.SERVER_ADDRESS)
+                .baseUrl(Config.SERVER_ADDRESS)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addCallAdapterFactory(LiveDataCallAdapterFactory.create())
