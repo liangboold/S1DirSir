@@ -1,6 +1,8 @@
 package com.example.s1dirsir;
 
 
+import android.view.View;
+
 import com.bw.mvp_library.v.BaseActivty;
 public class MainActivity extends BaseActivty {
 
@@ -11,7 +13,6 @@ public class MainActivity extends BaseActivty {
 
     @Override
     public void initView() {
-
     }
 
     @Override
@@ -22,5 +23,13 @@ public class MainActivity extends BaseActivty {
     @Override
     public void showLoading() {
 
+    }
+
+    @Override
+    public void immersive() {
+        super.immersive();
+        View decorView = getWindow().getDecorView();
+        int option = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN;
+        decorView.setSystemUiVisibility(option);
     }
 }
