@@ -1,7 +1,9 @@
+include ':Mvp'
 include ':Utils'
 rootProject.name = "S1DirSir"
 include ':app'
 include ':Net'
 include ':ARouter'
+include ':Spframe'
 include ':Database'
 include ':Log'
