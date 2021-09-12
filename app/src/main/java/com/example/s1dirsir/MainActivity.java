@@ -1,10 +1,15 @@
 package com.example.s1dirsir;
 
 
+import android.app.Application;
 import android.view.View;
 
-import com.bw.mvp_library.v.BaseActivty;
-public class MainActivity extends BaseActivty {
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.bw.mvp.v.BaseActivty;
+
+public class MainActivity extends BaseActivty<FoodPersenter> implements FoodContract.FoodView{
+
 
     @Override
     public int bindLayout() {
@@ -13,11 +18,13 @@ public class MainActivity extends BaseActivty {
 
     @Override
     public void initView() {
+
     }
 
     @Override
     public void initData() {
-
+        DaggerActivityComment.builder().foodModule(new FoodModule(this)).build().inject(this);
+        p.initFood();
     }
 
     @Override
@@ -26,10 +33,7 @@ public class MainActivity extends BaseActivty {
     }
 
     @Override
-    public void immersive() {
-        super.immersive();
-        View decorView = getWindow().getDecorView();
-        int option = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN;
-        decorView.setSystemUiVisibility(option);
+    public void showFood(JsonBean jsonBean) {
+
     }
 }
