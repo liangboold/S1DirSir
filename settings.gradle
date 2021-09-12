@@ -3,9 +3,6 @@ rootProject.name = "S1DirSir"
 include ':app'
 include ':Net'
 include ':ARouter'
-<<<<<<< HEAD
 include ':Spframe'
-=======
 include ':Database'
 include ':Log'
->>>>>>> 0d676640df2c7ca51e4275796a9af0adf7563cad
