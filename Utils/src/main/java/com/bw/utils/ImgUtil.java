@@ -19,12 +19,12 @@ import java.util.Objects;
 public class ImgUtil {
         
     public static void imgLoad(Object path,ImageView img){
-        Glide.with( Utils.getApp()).load(path).into(img);
+        Glide.with(Utils.getApp()).load(path).into(img);
     }
     public static void  imgLoadCircle(Object path,ImageView img){
-        Glide.with( Utils.getApp()).load(path).transform(new CircleCrop()).into(img);
+        Glide.with(Utils.getApp()).load(path).transform(new CircleCrop()).into(img);
     }
     public static void  imgLoadRounded(Object path,ImageView img,int corners){
-        Glide.with( Utils.getApp()).load(path).transform(new RoundedCorners(corners)).into(img);
+        Glide.with(Utils.getApp()).load(path).transform(new RoundedCorners(corners)).into(img);
     }
 }

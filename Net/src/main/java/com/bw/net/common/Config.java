@@ -13,5 +13,5 @@ public class Config {
     //获取后台token的code
     public final static String AUTH_CODE = "fd1581e11d91341321f41da15b16f1f11c218211b1231271";
     //后台接口
-    public static String SERVER_ADDRESS = "http://39.98.153.96:8088/shopapi/";
+    public static String SERVER_ADDRESS = "http://www.qubaobei.com/";
 }
