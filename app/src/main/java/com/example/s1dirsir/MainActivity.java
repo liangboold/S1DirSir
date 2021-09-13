@@ -1,5 +1,7 @@
 package com.example.s1dirsir;
 
+import android.widget.Toast;
+
 import com.bw.mvp.v.BaseActivty;
 
 public class MainActivity extends BaseActivty<FoodPersenter> implements FoodContract.FoodView{
@@ -26,6 +28,6 @@ public class MainActivity extends BaseActivty<FoodPersenter> implements FoodCont
 
     @Override
     public void showFood(JsonBean jsonBean) {
-
+        Toast.makeText(this, jsonBean.toString(), Toast.LENGTH_SHORT).show();
     }
 }

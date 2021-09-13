@@ -46,6 +46,14 @@ public class JsonBean {
         this.data = data;
     }
 
+    @Override
+    public String toString() {
+        return "JsonBean{" +
+                "ret=" + ret +
+                ", data=" + data +
+                '}';
+    }
+
     public static class DataBean implements Parcelable {
         private String id;
         private String title;
