@@ -19,10 +19,11 @@
             <option value="$PROJECT_DIR$/Spframe" />
             <option value="$PROJECT_DIR$/Utils" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/classfiymodule" />
+            <option value="$PROJECT_DIR$/shoppingcaremodule" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
-        <option name="useQualifiedModuleNames" value="true" />
       </GradleProjectSettings>
     </option>
   </component>
