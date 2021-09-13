@@ -1,5 +1,6 @@
 package com.example.s1dirsir;
 
+import com.bw.database.user.GreenDaoManager;
 import com.bw.mvp.v.BaseActivty;
 
 public class MainActivity extends BaseActivty<FoodPersenter> implements FoodContract.FoodView{
@@ -10,7 +11,6 @@ public class MainActivity extends BaseActivty<FoodPersenter> implements FoodCont
 
     @Override
     public void initView() {
-
     }
 
     @Override
