@@ -31,9 +31,9 @@ android {
 
 dependencies {
     implementation 'com.google.dagger:dagger:2.23.2'
-    implementation project(path: ':Mvp')
     implementation project(path: ':Utils')
     implementation project(path: ':Net')
+    implementation project(path: ':Mvp')
     annotationProcessor 'com.google.dagger:dagger-compiler:2.23.2'
     implementation 'io.reactivex.rxjava2:rxjava:2.2.6'//RxJava依赖
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
