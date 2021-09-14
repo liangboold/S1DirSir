@@ -4,7 +4,7 @@ rootProject.name = "S1DirSir"
 include ':app'
 include ':Net'
 include ':ARouter'
-include ':Spframe'
+include ':SpFrame'
 include ':Database'
 include ':Log'
 include ':logger'

@@ -1,0 +1,4 @@
+com/example/shoppingcaremodule/MainActivity.java
+ com.example.shoppingcaremodule.MainActivity
+com/example/shoppingcaremodule/BuildConfig.java
+ com.example.shoppingcaremodule.BuildConfig

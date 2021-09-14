@@ -3,8 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+<<<<<<< HEAD
     tools:context=".fragment.MainFragment"
     android:orientation="vertical">
+=======
+    tools:context="com.bawei.s1dirsir.fragment.MainFragment">
+>>>>>>> e2a3eeeb235be7fb27f6603b34d0f001b378fb4c
 
     <LinearLayout
         android:layout_width="match_parent"
