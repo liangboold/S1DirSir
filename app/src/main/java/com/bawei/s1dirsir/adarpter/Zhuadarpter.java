@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 
-import com.example.s1dirsir.R;
+import com.bawei.s1dirsir.R;
 
 import org.jetbrains.annotations.NotNull;
 

@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.os.PersistableBundle
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
-import com.example.arouter.R
+import com.bawei.arouter.R
 
 //@Route(path = "")
 class KotlinTestActivity : AppCompatActivity() {

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.arouter">
+    package="com.bawei.arouter">
 
     <application
         android:name="com.bawei.arouter.App"

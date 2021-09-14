@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-import com.example.log.R;
+import com.bawei.log.R;
 
 public class MainActivity extends AppCompatActivity {
 
