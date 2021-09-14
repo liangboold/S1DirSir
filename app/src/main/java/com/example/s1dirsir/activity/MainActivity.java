@@ -1,8 +1,12 @@
-package com.example.s1dirsir;
+package com.example.s1dirsir.activity;
 
 import android.widget.Toast;
 
 import com.bw.mvp.v.BaseActivty;
+import com.example.s1dirsir.DaggerActivityComment;
+import com.example.s1dirsir.inject.FoodModule;
+import com.example.s1dirsir.R;
+import com.example.s1dirsir.bean.JsonBean;
 import com.example.s1dirsir.contract.FoodContract;
 import com.example.s1dirsir.presenter.FoodPersenter;
 

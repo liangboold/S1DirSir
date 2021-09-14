@@ -1,4 +1,4 @@
-package com.example.s1dirsir;
+package com.example.s1dirsir.inject;
 
 import com.example.s1dirsir.activity.MainActivity;
 

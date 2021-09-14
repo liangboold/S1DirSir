@@ -1,9 +1,12 @@
-package com.example.s1dirsir;
+package com.example.s1dirsir.model;
 
 
 
 import com.bw.mvp.m.BaseModel;
 import com.bw.net.RetrofitFactory;
+import com.example.s1dirsir.Api;
+import com.example.s1dirsir.bean.JsonBean;
+import com.example.s1dirsir.contract.FoodContract;
 
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;

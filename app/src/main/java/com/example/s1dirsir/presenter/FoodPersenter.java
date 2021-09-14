@@ -1,7 +1,9 @@
-package com.example.s1dirsir;
+package com.example.s1dirsir.presenter;
 
 
 import com.bw.mvp.p.BasePresenter;
+import com.example.s1dirsir.bean.JsonBean;
+import com.example.s1dirsir.contract.FoodContract;
 
 import javax.inject.Inject;
 

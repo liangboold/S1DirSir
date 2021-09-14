@@ -1,4 +1,4 @@
-package com.example.s1dirsir;
+package com.example.s1dirsir.bean;
 
 import android.os.Parcel;
 import android.os.Parcelable;
