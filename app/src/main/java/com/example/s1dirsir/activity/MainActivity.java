@@ -1,25 +1,25 @@
 package com.example.s1dirsir.activity;
 
 
-import android.telecom.CallScreeningService;
-import android.widget.Toast;
-
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
-import com.ashokvarma.bottomnavigation.utils.Utils;
-import com.bw.database.user.GreenDaoManager;
-import com.bw.database.user.User;
+
 import com.bw.mvp.v.BaseActivty;
-<<<<<<< HEAD:app/src/main/java/com/example/s1dirsir/MainActivity.java
+import com.example.s1dirsir.R;
 import com.example.s1dirsir.adapter.FragmentAdapter;
+import com.example.s1dirsir.bean.JsonBean;
+import com.example.s1dirsir.contract.FoodContract;
 import com.example.s1dirsir.fragment.ClassFragment;
 import com.example.s1dirsir.fragment.MainFragment;
 import com.example.s1dirsir.fragment.MessageFragment;
 import com.example.s1dirsir.fragment.MyFragment;
 import com.example.s1dirsir.fragment.ShopCarFragment;
+import com.example.s1dirsir.inject.FoodModule;
+import com.example.s1dirsir.presenter.FoodPersenter;
+import com.example.s1dirsir.inject.DaggerActivityComment;
 
 import java.util.ArrayList;
 
@@ -29,14 +29,9 @@ public class MainActivity extends BaseActivty<FoodPersenter> implements FoodCont
     private final ArrayList<Fragment>list = new ArrayList<>();
 
 
-=======
-import com.example.s1dirsir.inject.DaggerActivityComment;
-import com.example.s1dirsir.inject.FoodModule;
-import com.example.s1dirsir.R;
-import com.example.s1dirsir.bean.JsonBean;
-import com.example.s1dirsir.contract.FoodContract;
-import com.example.s1dirsir.presenter.FoodPersenter;
->>>>>>> 3d009c1b328a34fa2801df63e779789045ace1cd:app/src/main/java/com/example/s1dirsir/activity/MainActivity.java
+
+
+
 
     @Override
     public int bindLayout() {
