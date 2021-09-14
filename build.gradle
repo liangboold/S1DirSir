@@ -19,7 +19,37 @@ buildscript {
         // in the individual module build.gradle files
     }
 }
+plugins{
+    id "calces.appconfig" version "3.3.0-alpha01"
+}
+appConfig {
+    debugEnable true
+    apps {
+        app {
+            name ":app"
+            mainActivity "com.example.s1dirsir"
+            mainActivity ".MainActivity"
+            modules ':shoppingcaremodule',
+                    ':classfiymodule'
+        }
+    }
 
+    modules {
+        shoppingcaremodule {
+            name ":shoppingcaremodule"
+            applicationId "com.example.shoppingcaremodule"
+            mainActivity ".MainActivity"
+            isRunAlone true
+        }
+
+        classfiymodule {
+            name ":classfiymodule"
+            applicationId "com.example.classfiymodule"
+            mainActivity ".MainActivity"
+            isRunAlone true
+        }
+    }
+}
 allprojects {
     repositories {
         google()
