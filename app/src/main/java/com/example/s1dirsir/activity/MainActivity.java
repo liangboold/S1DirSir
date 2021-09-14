@@ -3,6 +3,8 @@ package com.example.s1dirsir;
 import android.widget.Toast;
 
 import com.bw.mvp.v.BaseActivty;
+import com.example.s1dirsir.contract.FoodContract;
+import com.example.s1dirsir.presenter.FoodPersenter;
 
 public class MainActivity extends BaseActivty<FoodPersenter> implements FoodContract.FoodView{
     @Override
