@@ -4,8 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+<<<<<<< HEAD
     tools:context=".MainActivity"
     android:orientation="vertical">
+=======
+    tools:context=".activity.MainActivity">
+>>>>>>> 3d009c1b328a34fa2801df63e779789045ace1cd
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/vp"

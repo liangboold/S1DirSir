@@ -1,4 +1,7 @@
-package com.example.s1dirsir;
+package com.example.s1dirsir.inject;
+
+import com.example.s1dirsir.contract.FoodContract;
+import com.example.s1dirsir.model.FoodModel;
 
 import dagger.Module;
 import dagger.Provides;

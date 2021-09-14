@@ -1,5 +1,7 @@
 package com.example.s1dirsir;
 
+import com.example.s1dirsir.bean.JsonBean;
+
 import io.reactivex.Observable;
 import retrofit2.http.GET;
 

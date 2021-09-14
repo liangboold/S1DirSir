@@ -1,9 +1,10 @@
-package com.example.s1dirsir;
+package com.example.s1dirsir.contract;
 
 
 
 import com.bw.mvp.m.IModel;
 import com.bw.mvp.v.IView;
+import com.example.s1dirsir.bean.JsonBean;
 
 import io.reactivex.Observer;
 
