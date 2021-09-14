@@ -8,7 +8,7 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.s1dirsir.R;
+import com.bawei.s1dirsir.R;
 import com.bawei.s1dirsir.adarpter.Zhuadarpter;
 
 import java.util.ArrayList;

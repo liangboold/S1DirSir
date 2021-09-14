@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.s1dirsir.R;
+import com.bawei.s1dirsir.R;
 
 public class MessageFragment extends Fragment {
 
