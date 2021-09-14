@@ -8,7 +8,7 @@
 
     android:orientation="vertical"
 
-    tools:context=".activity.MainActivity">
+    tools:context="com.bawei.s1dirsir.activity.MainActivity">
 
 
     <androidx.viewpager.widget.ViewPager

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
-    tools:context=".activity.ZhuyeActivity">
+    tools:context="com.bawei.s1dirsir.activity.ZhuyeActivity">
 
     <androidx.viewpager.widget.ViewPager
         android:layout_width="match_parent"
