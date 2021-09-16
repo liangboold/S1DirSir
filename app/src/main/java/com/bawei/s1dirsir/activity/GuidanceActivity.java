@@ -1,58 +1,57 @@
 package com.bawei.s1dirsir.activity;
 
 import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import com.bawei.s1dirsir.R;
-import com.bawei.s1dirsir.adapter.GuidanceAdapter;
-import com.bw.mvp.view.BaseActivity;
 import com.bw.mvp.view.BaseMVPActivity;
 
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
-public class GuidanceActivity extends BaseMVPActivity {
-
-    private ViewPager vp;
-    private Button btnTiao;
-    private ArrayList<Integer> integers;
-
-    @Override
-    public void initData() {
-        integers = new ArrayList<>();
-        integers.add(R.drawable.a11);
-        integers.add(R.drawable.a22);
-        integers.add(R.drawable.a33);
-    }
-
-    @Override
-    protected void initEvent() {
-        GuidanceAdapter guidanceAdapter = new GuidanceAdapter(this, integers);
-        vp.setAdapter(guidanceAdapter);
-        btnTiao.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(GuidanceActivity.this, MainActivity.class);
-                startActivity(intent);
+public class GuidanceActivity extends AppCompatActivity {
+    int time = 5;
+    private TextView pageTvTime;
+    Handler handler = new Handler(){
+        @Override
+        public void handleMessage(@NonNull Message msg) {
+            super.handleMessage(msg);
+            if (time==0){
+                startActivity(new Intent(GuidanceActivity.this,MainActivity.class));
+                finish();
+            }else {
+                pageTvTime.setText(time+"");
             }
-        });
-    }
-
+        }
+    };
     @Override
-    protected void init() {
-        vp = (ViewPager) findViewById(R.id.vp);
-        btnTiao = (Button) findViewById(R.id.btn_tiao);
+    protected void onCreate(@Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_zhuye);
+        initView();
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                time--;
+                handler.sendEmptyMessage(0);
+            }
+        },0,1000);
     }
 
-    @Override
-    protected int getLayoutId() {
-        return R.layout.activity_zhuye;
+    private void initView() {
+        pageTvTime = (TextView) findViewById(R.id.page_tv_time);
     }
 
-    @Override
-    protected void injectComponent() {
-
-    }
 }
