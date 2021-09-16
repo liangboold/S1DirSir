@@ -32,19 +32,15 @@ android {
 dependencies {
     implementation 'com.google.dagger:dagger:2.23.2'
 
-    implementation project(path: ':Net')
     implementation project(path: ':Utils')
-    implementation project(path: ':Mvp')
 
-    implementation project(path: ':Utils')
-    implementation project(path: ':Net')
-    implementation project(path: ':Mvp')
     implementation project(path: ':Mvp')
     implementation project(path: ':Net')
 
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
     implementation 'com.github.crosswall:Android-Coverflow:release-v1.0.4'
+    implementation project(path: ':DI')
 
     annotationProcessor 'com.google.dagger:dagger-compiler:2.23.2'
     implementation 'io.reactivex.rxjava2:rxjava:2.2.6'//RxJava依赖
@@ -55,7 +51,6 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
-    implementation project(path: ':ARouter')
     implementation project(path: ':Database')
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'

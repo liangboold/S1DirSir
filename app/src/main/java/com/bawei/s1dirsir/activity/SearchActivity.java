@@ -11,25 +11,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bawei.s1dirsir.R;
-import com.bw.mvp.view.BaseActivty;
+import com.bw.mvp.view.BaseActivity;
+import com.bw.mvp.view.BaseMVPActivity;
 import com.bw.utils.MyToast;
 
-public class SearchActivity extends BaseActivty  {
+public class SearchActivity extends BaseMVPActivity {
     private ImageView back;
     private EditText search;
     private TextView scan;
-
-    @Override
-    public int bindLayout() {
-        return R.layout.activity_search;
-    }
-
-    @Override
-    public void initView() {
-        back = (ImageView) findViewById(R.id.back);
-        search = (EditText) findViewById(R.id.search);
-        scan = (TextView) findViewById(R.id.scan);
-    }
 
     @Override
     public void initData() {
@@ -59,7 +48,24 @@ public class SearchActivity extends BaseActivty  {
     }
 
     @Override
-    public void showLoading() {
+    protected void initEvent() {
+
+    }
+
+    @Override
+    protected void init() {
+        back = (ImageView) findViewById(R.id.back);
+        search = (EditText) findViewById(R.id.search);
+        scan = (TextView) findViewById(R.id.scan);
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_search;
+    }
+
+    @Override
+    protected void injectComponent() {
 
     }
 }

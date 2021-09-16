@@ -20,7 +20,4 @@ public interface FoodContract {
     interface FoodView extends IView {
         void showFood(JsonBean jsonBean);
     }
-    interface FoodModel extends IModel {
-        void getFood(Observer<JsonBean> observer);
-    }
 }

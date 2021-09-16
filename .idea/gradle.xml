@@ -11,6 +11,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/ARouter" />
+            <option value="$PROJECT_DIR$/DI" />
             <option value="$PROJECT_DIR$/Database" />
             <option value="$PROJECT_DIR$/Log" />
             <option value="$PROJECT_DIR$/Logger" />
@@ -24,6 +25,7 @@
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
+        <option name="useQualifiedModuleNames" value="true" />
       </GradleProjectSettings>
     </option>
   </component>
