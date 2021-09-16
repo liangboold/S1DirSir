@@ -28,11 +28,6 @@ public class MainActivity extends BaseActivty<FoodPersenter> implements FoodCont
     private BottomNavigationBar bar;
     private final ArrayList<Fragment>list = new ArrayList<>();
 
-
-
-
-
-
     @Override
     public int bindLayout() {
         return R.layout.activity_main;
