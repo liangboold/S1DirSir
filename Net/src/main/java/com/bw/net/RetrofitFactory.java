@@ -3,6 +3,8 @@ package com.bw.net;
 import android.text.TextUtils;
 import android.util.Log;
 
+import androidx.core.os.BuildCompat;
+
 import com.bw.net.api.TokenApi;
 import com.bw.net.common.Config;
 import com.bw.net.protocol.TokenRespEntry;
@@ -52,7 +54,7 @@ public class RetrofitFactory {
 
     public Retrofit createRetrofit() {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(Config.SERVER_ADDRESS)
+                .baseUrl(BuildConfig.BASEURL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addCallAdapterFactory(LiveDataCallAdapterFactory.create())

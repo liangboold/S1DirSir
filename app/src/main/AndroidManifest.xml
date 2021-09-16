@@ -11,16 +11,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.S1DirSir">
+<<<<<<< HEAD
+        <activity android:name=".activity.ShopListActivity"></activity>
+        <activity android:name=".activity.SearchActivity" />
+        <activity android:name=".activity.ZhuyeActivity">
+=======
         <activity android:name="com.bawei.s1dirsir.activity.GuidanceActivity">
+>>>>>>> 62277f8a0c5bceba23613df6b5061f42476311a4
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.bawei.s1dirsir.activity.MainActivity">
-
-        </activity>
+        <activity android:name=".activity.MainActivity" />
     </application>
 
 </manifest>

@@ -1,16 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.bawei.s1dirsir.fragment.MainFragment">
+    tools:context=".activity.SearchActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:background="#FE9C2E"
+        android:layout_marginTop="21dp"
         android:orientation="horizontal">
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/image_back"
+            android:layout_margin="12dp"></ImageView>
         <EditText
             android:id="@+id/search"
             android:layout_width="match_parent"
@@ -21,18 +28,19 @@
             android:layout_marginLeft="10dp"
             android:layout_toLeftOf="@+id/scan"
             android:drawableLeft="@drawable/image_sousuo"
-            android:background="#FE9C2E"></EditText>
+            android:background="#FE9C2E"
+            android:layout_toRightOf="@+id/back"></EditText>
 
         <TextView
             android:id="@+id/scan"
             android:layout_width="42dp"
             android:layout_height="42dp"
-            android:text="扫一扫"
-            android:textSize="12dp"
+            android:text="搜索"
+            android:textSize="18dp"
+            android:gravity="center"
             android:textColor="#fff"
-            android:drawableTop="@drawable/image_sys"
-            android:layout_alignParentRight="true"
-            android:layout_margin="3dp"></TextView>
+            android:layout_margin="5dp"
+            android:layout_alignParentRight="true"></TextView>
     </RelativeLayout>
 
 </LinearLayout>
