@@ -1,3 +1,4 @@
+include ':DI'
 include ':Mvp'
 include ':Utils'
 rootProject.name = "S1DirSir"
@@ -8,5 +9,5 @@ include ':SpFrame'
 include ':Database'
 include ':Log'
 include ':Logger'
-include ':classfiymodule'
-include ':shoppingcaremodule'
+include ':ShoppingCart'
+include ':SortModel'

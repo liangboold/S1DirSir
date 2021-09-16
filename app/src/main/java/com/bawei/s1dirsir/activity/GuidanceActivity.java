@@ -8,25 +8,16 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.bawei.s1dirsir.R;
 import com.bawei.s1dirsir.adapter.GuidanceAdapter;
-import com.bw.mvp.view.BaseActivty;
+import com.bw.mvp.view.BaseActivity;
+import com.bw.mvp.view.BaseMVPActivity;
 
 import java.util.ArrayList;
 
-public class GuidanceActivity extends BaseActivty {
+public class GuidanceActivity extends BaseMVPActivity {
 
     private ViewPager vp;
     private Button btnTiao;
     private ArrayList<Integer> integers;
-
-    @Override
-    public int bindLayout() {
-        return R.layout.activity_zhuye;
-    }
-    @Override
-    public void initView() {
-        vp = (ViewPager) findViewById(R.id.vp);
-        btnTiao = (Button) findViewById(R.id.btn_tiao);
-    }
 
     @Override
     public void initData() {
@@ -34,13 +25,10 @@ public class GuidanceActivity extends BaseActivty {
         integers.add(R.drawable.a11);
         integers.add(R.drawable.a22);
         integers.add(R.drawable.a33);
-
-
-
     }
 
     @Override
-    public void showLoading() {
+    protected void initEvent() {
         GuidanceAdapter guidanceAdapter = new GuidanceAdapter(this, integers);
         vp.setAdapter(guidanceAdapter);
         btnTiao.setOnClickListener(new View.OnClickListener() {
@@ -50,5 +38,21 @@ public class GuidanceActivity extends BaseActivty {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    protected void init() {
+        vp = (ViewPager) findViewById(R.id.vp);
+        btnTiao = (Button) findViewById(R.id.btn_tiao);
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_zhuye;
+    }
+
+    @Override
+    protected void injectComponent() {
+
     }
 }

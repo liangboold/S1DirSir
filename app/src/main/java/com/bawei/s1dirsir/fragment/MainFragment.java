@@ -4,7 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,21 +24,23 @@ import com.bawei.s1dirsir.activity.MainActivity;
 import com.bawei.s1dirsir.activity.SearchActivity;
 import com.bawei.s1dirsir.bean.JsonBean;
 import com.bawei.s1dirsir.contract.FoodContract;
-import com.bawei.s1dirsir.inject.DaggerActivityComment;
-import com.bawei.s1dirsir.inject.FoodModule;
 import com.bawei.s1dirsir.presenter.FoodPersenter;
-import com.bw.mvp.view.BaseFragment;
 import com.bw.utils.ImgUtil;
 import com.bw.utils.MyToast;
 import com.youth.banner.Banner;
 import com.youth.banner.loader.ImageLoader;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class MainFragment extends BaseFragment<FoodPersenter> implements FoodContract.FoodView {
+import me.crosswall.lib.coverflow.CoverFlow;
+import me.crosswall.lib.coverflow.core.PageItemClickListener;
+
+public class MainFragment extends Fragment {
     private EditText search;
     private TextView scan;
     private Banner banner;
@@ -43,25 +48,32 @@ public class MainFragment extends BaseFragment<FoodPersenter> implements FoodCon
     private GridView gridview;
     private List<Map<String,Object>>datalist = new ArrayList<>();;
     private SimpleAdapter simpleAdapter;
-
+    private View inflate;
 
     @Override
-    public int bindLayout() {
-        return R.layout.fragment_main;
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+
+        inflate = inflater.inflate(R.layout.fragment_main, container, false);
+        initView();
+        initData();
+        return inflate;
     }
 
-    @Override
+
+
     public void initView() {
-        search = (EditText) findViewById(R.id.search);
-        scan = (TextView) findViewById(R.id.scan);
-        banner = (Banner) findViewById(R.id.banner);
-        gridview = (GridView) findViewById(R.id.gridview);
+        search = (EditText) inflate.findViewById(R.id.search);
+        scan = (TextView) inflate.findViewById(R.id.scan);
+        banner = (Banner) inflate.findViewById(R.id.banner);
+        gridview = (GridView) inflate.findViewById(R.id.gridview);
     }
 
-    @Override
+
     public void initData() {
         bannerView();
         gridviewView();
+        pagerView();
         scan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -75,6 +87,11 @@ public class MainFragment extends BaseFragment<FoodPersenter> implements FoodCon
                 startActivity(intent);
             }
         });
+    }
+
+    private void pagerView() {
+
+
     }
 
     private void gridviewView() {
@@ -110,18 +127,4 @@ public class MainFragment extends BaseFragment<FoodPersenter> implements FoodCon
         banner.start();
     }
 
-    @Override
-    public void showLoading() {
-
-    }
-
-    @Override
-    public void immersive() {
-
-    }
-
-    @Override
-    public void showFood(JsonBean jsonBean) {
-
-    }
 }

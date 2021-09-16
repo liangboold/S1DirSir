@@ -7,20 +7,12 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.bawei.s1dirsir.R;
-import com.bw.mvp.view.BaseActivty;
+import com.bw.mvp.view.BaseActivity;
+import com.bw.mvp.view.BaseMVPActivity;
 
-public class ShopListActivity extends BaseActivty {
+public class ShopListActivity extends BaseMVPActivity {
     private ImageView back;
 
-    @Override
-    public int bindLayout() {
-        return R.layout.activity_shop_list;
-    }
-
-    @Override
-    public void initView() {
-        back = (ImageView) findViewById(R.id.back);
-    }
 
     @Override
     public void initData() {
@@ -33,7 +25,23 @@ public class ShopListActivity extends BaseActivty {
     }
 
     @Override
-    public void showLoading() {
+    protected void initEvent() {
+
+    }
+
+    @Override
+    protected void init() {
+        back = (ImageView) findViewById(R.id.back);
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_shop_list;
+    }
+
+
+    @Override
+    protected void injectComponent() {
 
     }
 }

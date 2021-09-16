@@ -1,29 +1,22 @@
 package com.bw.mvp.presenter;
 
 
-import com.bw.mvp.model.IModel;
+import com.bw.mvp.repository.BaseRepository;
 import com.bw.mvp.view.IView;
 
 import javax.inject.Inject;
 
-public class BasePresenter<M extends IModel,V extends IView> implements IPresenter {
-    protected M model;
-    protected V view;
+/*
+ * @ClassName ImgUtil
+ * @Description TODO
+ * @Author 康泽林
+ * @Date 2021/9/16 18:39
+ * @Version 1.0
+ */
+public abstract class BasePresenter<Repo extends BaseRepository,V extends IView> {
+    @Inject
+    protected Repo repository;
 
     @Inject
-    public BasePresenter(M model, V view) {
-        this.model = model;
-        this.view = view;
-    }
-
-    @Override
-    public void Destory() {
-        if (model != null){
-            model.Destory();
-            model = null;
-        }
-        if (view != null){
-            view = null;
-        }
-    }
+    protected V view;
 }

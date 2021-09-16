@@ -1,6 +1,7 @@
 package com.bawei.s1dirsir.presenter;
 
 
+import com.bawei.s1dirsir.repository.FoodRepository;
 import com.bw.mvp.presenter.BasePresenter;
 import com.bawei.s1dirsir.bean.JsonBean;
 import com.bawei.s1dirsir.contract.FoodContract;
@@ -18,18 +19,13 @@ import io.reactivex.disposables.Disposable;
  * @Date 2021/9/3 15:21
  * @Version 1.0
  */
-public class FoodPersenter extends BasePresenter<FoodContract.FoodModel, FoodContract.FoodView> {
-    private Disposable disposable;
-    @Inject
-    public FoodPersenter(FoodContract.FoodModel foodModel, FoodContract.FoodView foodView) {
-        super(foodModel, foodView);
-    }
+public class FoodPersenter extends BasePresenter<FoodRepository, FoodContract.FoodView> {
+
 
     public void initFood(){
-        model.getFood(new Observer<JsonBean>() {
+        repository.getFood(new Observer<JsonBean>() {
             @Override
             public void onSubscribe(@NonNull Disposable d) {
-                disposable = d;
             }
 
             @Override
@@ -47,14 +43,5 @@ public class FoodPersenter extends BasePresenter<FoodContract.FoodModel, FoodCon
 
             }
         });
-    }
-
-    @Override
-    public void Destory() {
-        super.Destory();
-        if (disposable != null){
-            disposable.dispose();
-            disposable = null;
-        }
     }
 }
