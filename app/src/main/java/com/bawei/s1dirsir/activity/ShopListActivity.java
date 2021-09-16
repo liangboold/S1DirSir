@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.bawei.s1dirsir.R;
-import com.bw.mvp.v.BaseActivty;
+import com.bw.mvp.view.BaseActivty;
 
 public class ShopListActivity extends BaseActivty {
     private ImageView back;
