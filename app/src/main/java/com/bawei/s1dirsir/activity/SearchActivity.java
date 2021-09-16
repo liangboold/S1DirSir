@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bawei.s1dirsir.R;
-import com.bw.mvp.v.BaseActivty;
+import com.bw.mvp.view.BaseActivty;
 import com.bw.utils.MyToast;
 
 public class SearchActivity extends BaseActivty  {

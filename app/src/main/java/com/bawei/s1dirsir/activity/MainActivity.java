@@ -12,6 +12,7 @@ import com.bawei.s1dirsir.fragment.MainFragment;
 import com.bawei.s1dirsir.fragment.MessageFragment;
 import com.bawei.s1dirsir.fragment.MyFragment;
 import com.bawei.s1dirsir.fragment.ShopCarFragment;
+import com.bawei.s1dirsir.inject.DaggerActivityComment;
 import com.bawei.s1dirsir.presenter.FoodPersenter;
 import com.bw.mvp.view.BaseActivty;
 import com.bawei.s1dirsir.R;
