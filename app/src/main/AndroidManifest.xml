@@ -13,7 +13,6 @@
         android:theme="@style/Theme.S1DirSir">
         <activity android:name=".activity.ShopListActivity"></activity>
         <activity android:name=".activity.SearchActivity" />
-        <activity android:name=".activity.ZhuyeActivity"/>
         <activity android:name="com.bawei.s1dirsir.activity.GuidanceActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

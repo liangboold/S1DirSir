@@ -16,15 +16,14 @@
             <option value="$PROJECT_DIR$/Logger" />
             <option value="$PROJECT_DIR$/Mvp" />
             <option value="$PROJECT_DIR$/Net" />
+            <option value="$PROJECT_DIR$/ShoppingCart" />
+            <option value="$PROJECT_DIR$/SortModel" />
             <option value="$PROJECT_DIR$/SpFrame" />
             <option value="$PROJECT_DIR$/Utils" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/classfiymodule" />
-            <option value="$PROJECT_DIR$/shoppingcaremodule" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
-        <option name="useQualifiedModuleNames" value="true" />
       </GradleProjectSettings>
     </option>
   </component>
