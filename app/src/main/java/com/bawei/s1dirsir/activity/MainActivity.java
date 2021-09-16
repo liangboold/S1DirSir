@@ -15,11 +15,12 @@ import com.bawei.s1dirsir.fragment.ShopCarFragment;
 import com.bawei.s1dirsir.inject.DaggerActivityComment;
 import com.bawei.s1dirsir.presenter.FoodPersenter;
 import com.bw.mvp.v.BaseActivty;
-import com.example.s1dirsir.R;
+import com.bawei.s1dirsir.R;
 import com.bawei.s1dirsir.bean.JsonBean;
 import com.bawei.s1dirsir.contract.FoodContract;
 import com.bawei.s1dirsir.fragment.ClassFragment;
 import com.bawei.s1dirsir.inject.FoodModule;
+import com.bawei.s1dirsir.inject.DaggerActivityComment;
 
 import java.util.ArrayList;
 
