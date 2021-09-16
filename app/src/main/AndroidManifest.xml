@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.S1DirSir">
-        <activity android:name="com.bawei.s1dirsir.activity.ZhuyeActivity">
+        <activity android:name="com.bawei.s1dirsir.activity.GuidanceActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

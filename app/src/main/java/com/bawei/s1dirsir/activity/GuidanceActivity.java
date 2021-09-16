@@ -5,16 +5,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import com.bawei.s1dirsir.R;
 import com.bawei.s1dirsir.adarpter.Zhuadarpter;
+import com.bw.mvp.v.BaseActivty;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ZhuyeActivity extends AppCompatActivity {
+public class GuidanceActivity extends BaseActivty {
 
     private ViewPager vp;
     private Button btnTiao;
@@ -33,14 +33,29 @@ public class ZhuyeActivity extends AppCompatActivity {
         btnTiao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ZhuyeActivity.this, MainActivity.class);
+                Intent intent = new Intent(GuidanceActivity.this, MainActivity.class);
                 startActivity(intent);
             }
         });
     }
 
-    private void initView() {
+    @Override
+    public int bindLayout() {
+        return 0;
+    }
+    @Override
+    public void initView() {
         vp = (ViewPager) findViewById(R.id.vp);
         btnTiao = (Button) findViewById(R.id.btn_tiao);
+    }
+
+    @Override
+    public void initData() {
+
+    }
+
+    @Override
+    public void showLoading() {
+
     }
 }
