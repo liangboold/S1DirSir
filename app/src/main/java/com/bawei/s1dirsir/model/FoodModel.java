@@ -5,7 +5,7 @@ package com.bawei.s1dirsir.model;
 import com.bawei.s1dirsir.Api;
 import com.bawei.s1dirsir.bean.JsonBean;
 import com.bawei.s1dirsir.contract.FoodContract;
-import com.bw.mvp.m.BaseModel;
+import com.bw.mvp.model.BaseModel;
 import com.bw.net.RetrofitFactory;
 
 import io.reactivex.Observer;

@@ -1,4 +1,4 @@
-package com.bw.mvp.v;
+package com.bw.mvp.view;
 
 public interface IView {
     void showLoading();

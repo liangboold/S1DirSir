@@ -1,4 +1,4 @@
-package com.bw.mvp.m;
+package com.bw.mvp.model;
 
 
 public class BaseModel implements IModel {

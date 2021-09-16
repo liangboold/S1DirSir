@@ -3,9 +3,6 @@ package com.bawei.logger;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-
-import com.bawei.logger.R;
-
 public class MainActivity extends AppCompatActivity {
 
     @Override
