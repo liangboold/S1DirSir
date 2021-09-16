@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.bawei.arouter.KotlinTestActivity">
+    tools:context="com.bawei.arouter.base.KotlinTestActivity">
 
     <TextView
         android:layout_width="wrap_content"

@@ -13,13 +13,13 @@
             <option value="$PROJECT_DIR$/ARouter" />
             <option value="$PROJECT_DIR$/Database" />
             <option value="$PROJECT_DIR$/Log" />
+            <option value="$PROJECT_DIR$/Logger" />
             <option value="$PROJECT_DIR$/Mvp" />
             <option value="$PROJECT_DIR$/Net" />
             <option value="$PROJECT_DIR$/SpFrame" />
             <option value="$PROJECT_DIR$/Utils" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/classfiymodule" />
-            <option value="$PROJECT_DIR$/logger" />
             <option value="$PROJECT_DIR$/shoppingcaremodule" />
           </set>
         </option>
