@@ -1,4 +1,4 @@
-package com.bw.mvp.v;
+package com.bw.mvp.view;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.bw.mvp.p.IPresenter;
+import com.bw.mvp.presenter.IPresenter;
 
 import javax.inject.Inject;
 

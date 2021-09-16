@@ -1,7 +1,7 @@
 package com.bawei.s1dirsir.presenter;
 
 
-import com.bw.mvp.p.BasePresenter;
+import com.bw.mvp.presenter.BasePresenter;
 import com.bawei.s1dirsir.bean.JsonBean;
 import com.bawei.s1dirsir.contract.FoodContract;
 

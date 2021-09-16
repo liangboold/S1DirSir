@@ -1,7 +1,6 @@
 package com.bawei.s1dirsir.activity;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
@@ -9,10 +8,9 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.bawei.s1dirsir.R;
 import com.bawei.s1dirsir.adapter.GuidanceAdapter;
-import com.bw.mvp.v.BaseActivty;
+import com.bw.mvp.view.BaseActivty;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class GuidanceActivity extends BaseActivty {
 

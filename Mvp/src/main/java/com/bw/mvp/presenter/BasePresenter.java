@@ -1,8 +1,8 @@
-package com.bw.mvp.p;
+package com.bw.mvp.presenter;
 
 
-import com.bw.mvp.m.IModel;
-import com.bw.mvp.v.IView;
+import com.bw.mvp.model.IModel;
+import com.bw.mvp.view.IView;
 
 import javax.inject.Inject;
 

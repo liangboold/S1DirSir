@@ -1,4 +1,4 @@
-package com.bw.mvp.v;
+package com.bw.mvp.view;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -7,7 +7,7 @@ import android.view.View;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.bw.mvp.p.IPresenter;
+import com.bw.mvp.presenter.IPresenter;
 
 import javax.inject.Inject;
 

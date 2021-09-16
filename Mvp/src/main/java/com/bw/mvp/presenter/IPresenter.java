@@ -1,4 +1,4 @@
-package com.bw.mvp.p;
+package com.bw.mvp.presenter;
 
 public interface IPresenter {
     void Destory();
