@@ -1,5 +1,6 @@
 package com.bawei.s1dirsir.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -11,6 +12,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.bawei.s1dirsir.R;
+import com.bawei.s1dirsir.activity.SearchActivity;
+import com.bw.utils.MyToast;
 
 public class MainFragment extends Fragment {
     private EditText search;
@@ -28,7 +31,14 @@ public class MainFragment extends Fragment {
         scan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                MyToast.showLong(getContext(),"敬请期待~~~");
+            }
+        });
+        search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), SearchActivity.class);
+                startActivity(intent);
             }
         });
         return inflate;
