@@ -8,7 +8,7 @@ import android.widget.Button;
 import androidx.viewpager.widget.ViewPager;
 
 import com.bawei.s1dirsir.R;
-import com.bawei.s1dirsir.adarpter.Zhuadarpter;
+import com.bawei.s1dirsir.adapter.GuidanceAdapter;
 import com.bw.mvp.v.BaseActivty;
 
 import java.util.ArrayList;
@@ -28,8 +28,8 @@ public class GuidanceActivity extends BaseActivty {
         integers.add(R.drawable.a11);
         integers.add(R.drawable.a22);
         integers.add(R.drawable.a33);
-        Zhuadarpter zhuadarpter = new Zhuadarpter(this, integers);
-        vp.setAdapter(zhuadarpter);
+        GuidanceAdapter guidanceAdapter = new GuidanceAdapter(this, integers);
+        vp.setAdapter(guidanceAdapter);
         btnTiao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

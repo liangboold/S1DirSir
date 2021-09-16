@@ -1,4 +1,4 @@
-package com.bawei.s1dirsir.adarpter;
+package com.bawei.s1dirsir.adapter;
 
 import android.content.Context;
 import android.view.View;
@@ -21,11 +21,11 @@ import java.util.List;
  * @Date 2021/9/14 9:16
  * @Version 1.0
  */
-public class Zhuadarpter extends PagerAdapter {
+public class GuidanceAdapter extends PagerAdapter {
     List<Integer> integers;
     private Context context;
 
-    public Zhuadarpter(Context context,List<Integer> integers) {
+    public GuidanceAdapter(Context context,List<Integer> integers) {
         this.context = context;
         this.integers = integers;
     }

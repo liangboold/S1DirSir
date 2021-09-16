@@ -16,7 +16,7 @@
             <option value="$PROJECT_DIR$/Logger" />
             <option value="$PROJECT_DIR$/Mvp" />
             <option value="$PROJECT_DIR$/Net" />
-            <option value="$PROJECT_DIR$/Spframe" />
+            <option value="$PROJECT_DIR$/SpFrame" />
             <option value="$PROJECT_DIR$/Utils" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/classfiymodule" />
@@ -24,7 +24,6 @@
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
-        <option name="useQualifiedModuleNames" value="true" />
       </GradleProjectSettings>
     </option>
   </component>
