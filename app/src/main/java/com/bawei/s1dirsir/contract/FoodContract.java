@@ -2,8 +2,8 @@ package com.bawei.s1dirsir.contract;
 
 
 
-import com.bw.mvp.m.IModel;
-import com.bw.mvp.v.IView;
+import com.bw.mvp.model.IModel;
+import com.bw.mvp.view.IView;
 import com.bawei.s1dirsir.bean.JsonBean;
 
 import io.reactivex.Observer;
