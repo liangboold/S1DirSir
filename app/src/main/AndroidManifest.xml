@@ -15,13 +15,15 @@
         <activity android:name=".activity.ShopListActivity"></activity>
         <activity android:name=".activity.SearchActivity" />
         <activity android:name="com.bawei.s1dirsir.activity.GuidanceActivity" android:exported="true" android:theme="@style/Page_back">
+
+        </activity>
+        <activity android:name=".activity.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.MainActivity" />
     </application>
 
 </manifest>

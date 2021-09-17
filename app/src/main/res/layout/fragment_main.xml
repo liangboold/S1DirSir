@@ -48,8 +48,9 @@
 
             <GridView
                 android:id="@+id/gridview"
+                android:overScrollMode="never"
                 android:layout_width="match_parent"
-                android:layout_height="145dp"
+                android:layout_height="148dp"
                 android:numColumns="4"></GridView>
         </LinearLayout>
     </ScrollView>
