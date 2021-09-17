@@ -130,5 +130,6 @@ public class MainFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         datalist.clear();
+        list.clear();
     }
 }

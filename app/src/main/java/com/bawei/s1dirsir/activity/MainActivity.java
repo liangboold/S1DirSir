@@ -119,7 +119,7 @@ public class MainActivity extends BaseMVPActivity<FoodPersenter> implements Food
 
     @Override
     public void foodSuccess(JsonBean jsonBean) {
-        Toast.makeText(this, jsonBean.toString(), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, jsonBean.toString(), Toast.LENGTH_SHORT).show();
         Log.i("123456", "foodSuccess: "+jsonBean.getData().size());
     }
 
