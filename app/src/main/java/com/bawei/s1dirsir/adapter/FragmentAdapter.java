@@ -17,12 +17,13 @@ import java.util.ArrayList;
  * @email:1572651596@qq.com
  */
 public class FragmentAdapter extends FragmentPagerAdapter {
-    private ArrayList<Fragment>list;
+    private ArrayList<Fragment> list;
 
-    public FragmentAdapter(@NonNull @NotNull FragmentManager fm, ArrayList<Fragment> list) {
-        super(fm);
+    public FragmentAdapter(@NonNull FragmentManager fm, int behavior,ArrayList<Fragment>list) {
+        super(fm, behavior);
         this.list = list;
     }
+
 
     @NonNull
     @NotNull

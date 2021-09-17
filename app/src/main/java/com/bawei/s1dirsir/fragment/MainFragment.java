@@ -127,4 +127,9 @@ public class MainFragment extends Fragment {
         banner.start();
     }
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        datalist.clear();
+    }
 }

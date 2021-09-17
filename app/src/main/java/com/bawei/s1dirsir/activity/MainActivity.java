@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
@@ -37,21 +38,6 @@ public class MainActivity extends BaseMVPActivity<FoodPersenter> implements Food
     @Inject
     FoodPersenter presenter;
 
-
-
-//    @Override
-//    public int bindLayout() {
-//        return R.layout.activity_main;
-//    }
-//
-//    @Override
-//    public void initView() {
-//        vp = (ViewPager) findViewById(R.id.vp);
-//        bar = (BottomNavigationBar) findViewById(R.id.bar);
-//    }
-
-
-
     @Override
     public void initData() {
 
@@ -60,7 +46,7 @@ public class MainActivity extends BaseMVPActivity<FoodPersenter> implements Food
         list.add(new ShopCarFragment());
         list.add(new MessageFragment());
         list.add(new MyFragment());
-        FragmentAdapter fragmentAdapter = new FragmentAdapter(getSupportFragmentManager(), list);
+        FragmentAdapter fragmentAdapter = new FragmentAdapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT,list);
         vp.setAdapter(fragmentAdapter);
 
         bar.setTabSelectedListener(this)
@@ -82,23 +68,7 @@ public class MainActivity extends BaseMVPActivity<FoodPersenter> implements Food
 
             @Override
             public void onPageSelected(int position) {
-                switch (position){
-                    case 0:
-                        bar.selectTab(0);
-                        break;
-                    case 1:
-                        bar.selectTab(1);
-                        break;
-                    case 2:
-                        bar.selectTab(2);
-                        break;
-                    case 3:
-                        bar.selectTab(3);
-                        break;
-                    case 4:
-                        bar.selectTab(4);
-                        break;
-                }
+                bar.selectTab(position);
             }
 
             @Override
@@ -112,7 +82,6 @@ public class MainActivity extends BaseMVPActivity<FoodPersenter> implements Food
     @Override
     protected void initEvent() {
         presenter.initFood();
-        System.out.println(1111);
     }
 
     @Override
