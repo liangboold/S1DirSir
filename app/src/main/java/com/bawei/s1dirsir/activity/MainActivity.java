@@ -51,6 +51,7 @@ public class MainActivity extends BaseMVPActivity<FoodPersenter> implements Food
 
         bar.setTabSelectedListener(this)
                 .setMode(BottomNavigationBar.MODE_FIXED)
+                .setBackgroundStyle(BottomNavigationBar.BACKGROUND_STYLE_STATIC)
                 .setActiveColor("#ff6600")
                 .setInActiveColor("#cccccc")
                 .setBarBackgroundColor("#ffffff");
@@ -76,7 +77,6 @@ public class MainActivity extends BaseMVPActivity<FoodPersenter> implements Food
 
             }
         });
-
     }
 
     @Override

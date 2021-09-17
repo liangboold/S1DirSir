@@ -1,14 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FCFCFC"
     tools:context="com.bawei.s1dirsir.fragment.ShopCarFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
+        android:background="#FE9C2F"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="33333333333333333" />
+        android:layout_height="@dimen/fragment_head_height">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/shop_text_title"
+            android:textColor="@color/white"
+            android:layout_centerInParent="true"
+            android:textSize="@dimen/fragment_text_size_title"/>
 
-</FrameLayout>
+        <TextView
+            android:id="@+id/shop_text_updata"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/fragment_text_size"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:textColor="@color/white"
+            android:text="@string/shop_text_edit"
+            android:layout_marginRight="10dp"/>
+    </RelativeLayout>
+
+
+
+    <RelativeLayout
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/fragment_head_height">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#E3DBDB"/>
+
+        <CheckBox
+            android:layout_width="70dp"
+            android:layout_height="50dp"
+            android:id="@+id/shop_btn_all"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:text="全选"
+            style="@style/Widget.AppCompat.CompoundButton.RadioButton"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/shop_text_price"
+            android:id="@+id/shop_text_price"
+            android:textColor="@color/red"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/shop_btn_all"
+            android:layout_centerVertical="true"/>
+
+        <Button
+            android:id="@+id/shop_btn_pay"
+            android:layout_width="100dp"
+            android:layout_height="fill_parent"
+            android:text="@string/shop_text_pay"
+            android:textSize="@dimen/fragment_text_size"
+            android:layout_alignParentRight="true"
+            android:background="@color/red"
+            android:textColor="@color/white"
+            android:layout_centerVertical="true"/>
+    </RelativeLayout>
+</RelativeLayout>

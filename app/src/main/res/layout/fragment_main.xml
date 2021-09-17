@@ -9,7 +9,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="45dp"
+        android:layout_height="@dimen/fragment_head_height"
         android:background="#FE9C2E"
         android:orientation="horizontal">
         <EditText
@@ -20,6 +20,7 @@
             android:textColorHint="#fff"
             android:textSize="12dp"
             android:layout_marginLeft="10dp"
+            android:layout_centerVertical="true"
             android:layout_toLeftOf="@+id/scan"
             android:drawableLeft="@drawable/image_sousuo"
             android:background="#FE9C2E"></EditText>
@@ -31,6 +32,7 @@
             android:text="扫一扫"
             android:textSize="12dp"
             android:textColor="#fff"
+            android:layout_centerInParent="true"
             android:drawableTop="@drawable/image_sys"
             android:layout_alignParentRight="true"
             android:layout_margin="3dp"></TextView>
