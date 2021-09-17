@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context="com.bawei.s1dirsir.fragment.MainFragment">
 
@@ -45,6 +46,26 @@
                 android:id="@+id/banner"
                 android:layout_width="match_parent"
                 android:layout_height="160dp"></com.youth.banner.Banner>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="38dp"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:background="@drawable/share_item"
+                android:layout_margin="10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" 公告 "
+                    android:drawableLeft="@drawable/gonggao"
+                    android:textSize="15dp"
+                    android:textStyle="bold"
+                    android:textColor="#F44336"></TextView>
+                <com.bawei.s1dirsir.VerticalTextview
+                    android:id="@+id/textview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
 
             <GridView
                 android:id="@+id/gridview"
@@ -52,6 +73,30 @@
                 android:layout_width="match_parent"
                 android:layout_height="148dp"
                 android:numColumns="4"></GridView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="火爆进行中"
+                android:layout_margin="5dp"
+                android:drawableLeft="@drawable/tejia"></TextView>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"></androidx.recyclerview.widget.RecyclerView>
+
+            <com.zhouwei.mzbanner.MZBannerView
+                android:id="@+id/fg_home_mzBanner"
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:layout_marginTop="6dp"
+                app:open_mz_mode="true"
+                app:middle_page_cover="true"
+                app:canLoop="false"
+                app:indicatorAlign="center"
+                app:indicatorPaddingLeft="10dp">
+            </com.zhouwei.mzbanner.MZBannerView>
+
         </LinearLayout>
     </ScrollView>
 
