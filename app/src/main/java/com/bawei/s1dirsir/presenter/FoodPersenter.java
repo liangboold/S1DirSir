@@ -9,8 +9,10 @@ import com.bawei.s1dirsir.contract.FoodContract;
 import javax.inject.Inject;
 
 import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 
 /*
  * @ClassName FoodPersenter
@@ -19,29 +21,37 @@ import io.reactivex.disposables.Disposable;
  * @Date 2021/9/3 15:21
  * @Version 1.0
  */
-public class FoodPersenter extends BasePresenter<FoodRepository, FoodContract.FoodView> {
+public class FoodPersenter extends BasePresenter<FoodRepository, FoodContract> {
 
+    @Inject
+    public FoodPersenter() {
+    }
 
     public void initFood(){
-        repository.getFood(new Observer<JsonBean>() {
-            @Override
-            public void onSubscribe(@NonNull Disposable d) {
-            }
+        repository.getFood()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<JsonBean>() {
+                    @Override
+                    public void onSubscribe(@NonNull Disposable d) {
 
-            @Override
-            public void onNext(@NonNull JsonBean jsonBean) {
-                view.showFood(jsonBean);
-            }
+                    }
 
-            @Override
-            public void onError(@NonNull Throwable e) {
+                    @Override
+                    public void onNext(@NonNull JsonBean jsonBean) {
+                        view.foodSuccess(jsonBean);
+                    }
 
-            }
+                    @Override
+                    public void onError(@NonNull Throwable e) {
+                        view.foodFailed(e);
+                    }
 
-            @Override
-            public void onComplete() {
+                    @Override
+                    public void onComplete() {
 
-            }
-        });
+                    }
+                });
+
     }
 }

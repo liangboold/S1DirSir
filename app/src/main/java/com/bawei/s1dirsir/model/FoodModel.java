@@ -10,6 +10,7 @@ import com.bw.net.RetrofitFactory;
 
 import javax.inject.Inject;
 
+import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
@@ -25,11 +26,9 @@ public class FoodModel implements IModel {
     @Inject
     public FoodModel() {}
 
-    public void getFood(Observer<JsonBean> observer) {
-        RetrofitFactory.getRetrofitFactory().createRetrofit().create(Api.class)
-                .getJson()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(observer);
+    public Observable<JsonBean> getFood() {
+
+        return RetrofitFactory.getRetrofitFactory().createRetrofit().create(Api.class).getJson();
+
     }
 }

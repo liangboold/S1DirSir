@@ -7,6 +7,7 @@ import com.bw.mvp.repository.BaseRepository;
 
 import javax.inject.Inject;
 
+import io.reactivex.Observable;
 import io.reactivex.Observer;
 
 /*
@@ -20,7 +21,7 @@ public class FoodRepository extends BaseRepository<FoodModel> {
     @Inject
     public FoodRepository(){}
 
-     public void getFood(Observer<JsonBean> observer){
-        model.getFood(observer);
+    public Observable<JsonBean> getFood(){
+        return model.getFood();
     }
 }

@@ -2,22 +2,25 @@ package com.bawei.s1dirsir.contract;
 
 
 
-import com.bw.mvp.model.IModel;
-import com.bw.mvp.view.IView;
+
+
 import com.bawei.s1dirsir.bean.JsonBean;
+import com.bw.mvp.view.IView;
 
-import io.reactivex.Observer;
+import io.reactivex.Observable;
 
-
-/*
+/**
  * @ClassName FoodContract
- * @Description TODO
- * @Author 康泽林
- * @Date 2021/9/3 15:11
- * @Version 1.0
+ * @Author 孔晨亮
+ * @Date 2021/9/9 9:16
+ * User: msi
  */
-public interface FoodContract {
-    interface FoodView extends IView {
-        void showFood(JsonBean jsonBean);
-    }
+public interface FoodContract extends IView {
+
+    void foodSuccess(JsonBean jsonBean);
+    void foodFailed(Throwable throwable);
+
+
+
+
 }

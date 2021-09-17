@@ -1,6 +1,9 @@
 package com.bawei.s1dirsir.activity;
 
 
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
@@ -14,6 +17,8 @@ import com.bawei.s1dirsir.fragment.MainFragment;
 import com.bawei.s1dirsir.fragment.MessageFragment;
 import com.bawei.s1dirsir.fragment.MyFragment;
 import com.bawei.s1dirsir.fragment.ShopCarFragment;
+import com.bawei.s1dirsir.injection.component.DaggerFoodComponent;
+import com.bawei.s1dirsir.injection.module.FoodModule;
 import com.bawei.s1dirsir.presenter.FoodPersenter;
 import com.bawei.s1dirsir.R;
 import com.bawei.s1dirsir.bean.JsonBean;
@@ -23,13 +28,19 @@ import com.bw.mvp.view.BaseMVPActivity;
 
 import java.util.ArrayList;
 
-public class MainActivity extends BaseMVPActivity<FoodPersenter> implements FoodContract.FoodView,BottomNavigationBar.OnTabSelectedListener{
+import javax.inject.Inject;
+
+public class MainActivity extends BaseMVPActivity<FoodPersenter> implements FoodContract,BottomNavigationBar.OnTabSelectedListener{
     private ViewPager vp;
     private BottomNavigationBar bar;
     private final ArrayList<Fragment>list = new ArrayList<>();
+    @Inject
+    FoodPersenter presenter;
+
 
     @Override
     public void initData() {
+
         list.add(new MainFragment());
         list.add(new ClassFragment());
         list.add(new ShopCarFragment());
@@ -81,10 +92,18 @@ public class MainActivity extends BaseMVPActivity<FoodPersenter> implements Food
 
             }
         });
+
     }
 
     @Override
     protected void initEvent() {
+
+//        btn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                presenter.initFood();
+//            }
+//        });
 
     }
 
@@ -97,11 +116,6 @@ public class MainActivity extends BaseMVPActivity<FoodPersenter> implements Food
     @Override
     protected int getLayoutId() {
         return R.layout.activity_main;
-    }
-
-    @Override
-    public void showFood(JsonBean jsonBean) {
-//        Toast.makeText(this, jsonBean.toString(), Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -121,6 +135,20 @@ public class MainActivity extends BaseMVPActivity<FoodPersenter> implements Food
 
     @Override
     protected void injectComponent() {
-
+        DaggerFoodComponent.builder().activityComponent(activityComponent)
+                .foodModule(new FoodModule(this))
+                .build().injectMainActivity(this);
     }
+
+    @Override
+    public void foodSuccess(JsonBean jsonBean) {
+        Toast.makeText(this, jsonBean.toString(), Toast.LENGTH_SHORT).show();
+        Log.i("123456", "foodSuccess: "+jsonBean.getData().size());
+    }
+
+    @Override
+    public void foodFailed(Throwable throwable) {
+        Log.e("TAG", "foodFailed: "+throwable.getMessage() );
+    }
+
 }

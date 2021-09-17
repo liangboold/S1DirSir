@@ -36,6 +36,14 @@ public abstract class BaseActivity extends AppCompatActivity {
         getWindow().setStatusBarColor(Color.BLACK);
     }
 
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        if (hasFocus){
+            initEvent();
+        }
+    }
+
     protected abstract void initData();
 
     protected abstract void initEvent();
