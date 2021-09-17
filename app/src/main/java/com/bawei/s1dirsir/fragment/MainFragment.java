@@ -46,7 +46,7 @@ public class MainFragment extends Fragment {
     private Banner banner;
     private ArrayList list = new ArrayList();
     private GridView gridview;
-    private List<Map<String,Object>>datalist = new ArrayList<>();;
+    private List<Map<String,Object>>datalist = new ArrayList<>();
     private SimpleAdapter simpleAdapter;
     private View inflate;
 
@@ -90,7 +90,6 @@ public class MainFragment extends Fragment {
     }
 
     private void pagerView() {
-
 
     }
 
