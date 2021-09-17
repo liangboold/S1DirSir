@@ -111,14 +111,8 @@ public class MainActivity extends BaseMVPActivity<FoodPersenter> implements Food
 
     @Override
     protected void initEvent() {
-
-//        btn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                presenter.initFood();
-//            }
-//        });
-
+        presenter.initFood();
+        System.out.println(1111);
     }
 
     @Override

@@ -26,10 +26,10 @@ public abstract class BaseMVPActivity<P extends BasePresenter> extends BaseActiv
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
         activityComponent = DaggerActivityComponent.builder().appComponent(((BaseApplication) getApplication()).appComponent)
                 .activityModule(new ActivityModule(this)).build();
         injectComponent();
+        super.onCreate(savedInstanceState);
     }
 
     protected abstract void injectComponent();
