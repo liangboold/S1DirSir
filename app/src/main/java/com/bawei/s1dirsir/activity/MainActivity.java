@@ -28,6 +28,20 @@ public class MainActivity extends BaseMVPActivity<FoodPersenter> implements Food
     private BottomNavigationBar bar;
     private final ArrayList<Fragment>list = new ArrayList<>();
 
+
+//    @Override
+//    public int bindLayout() {
+//        return R.layout.activity_main;
+//    }
+//
+//    @Override
+//    public void initView() {
+//        vp = (ViewPager) findViewById(R.id.vp);
+//        bar = (BottomNavigationBar) findViewById(R.id.bar);
+//    }
+
+
+
     @Override
     public void initData() {
         list.add(new MainFragment());
