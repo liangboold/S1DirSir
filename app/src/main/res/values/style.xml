@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <style name="Page_back" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Page_back" parent="Theme.MaterialComponents.DayNight.NoActionBar.Bridge">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:windowBackground">@drawable/a11</item>

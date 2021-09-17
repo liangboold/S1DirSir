@@ -9,7 +9,7 @@
     <!-- TODO: Update blank fragment layout -->
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="45dp"
+        android:layout_height="@dimen/fragment_head_height"
         android:background="#FE9C2E"
         android:orientation="horizontal">
 
