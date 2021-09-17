@@ -86,7 +86,7 @@ public class RetrofitFactory {
             public Response intercept(Chain chain) throws IOException {
                 Request request = chain.request();
                 String localToken = mToken;
-                if(!TextUtils.isEmpty(localToken)){
+                if(!TextUtils.isEmpty("123")){
                     return restRequest(request,localToken,chain);
                 }
                 Response response = chain.proceed(request);
