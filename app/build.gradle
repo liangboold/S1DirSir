@@ -51,6 +51,8 @@ dependencies {
     implementation "com.squareup.retrofit2:adapter-rxjava2:2.3.0"
     implementation 'org.greenrobot:greendao:3.3.0' // 2.add library
     implementation 'com.youth.banner:banner:1.4.10'    //轮播图
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.22'//万能适配器
+    implementation 'com.github.pinguo-zhouwei:MZBannerView:v2.0.2'
     implementation 'com.ashokvarma.android:bottom-navigation-bar:2.0.5'
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.android.material:material:1.2.1'
