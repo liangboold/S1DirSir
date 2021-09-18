@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">ShoppingCart</string>
+    <string name="shop_text_title">购物车</string>
+    <string name="shop_text_edit">编辑</string>
+    <string name="shop_text_pay">去结算</string>
+    <string name="shop_text_price">合计:￥0.00</string>
 </resources>

@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#FCFCFC"
-    tools:context="com.bawei.s1dirsir.fragment.ShopCarFragment">
+    tools:context=".ShopCarFragment">
 
     <RelativeLayout
         android:background="#FE9C2F"

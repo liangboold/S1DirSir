@@ -36,6 +36,7 @@ dependencies {
 
     implementation project(path: ':Mvp')
     implementation project(path: ':Net')
+    implementation project(path: ':ShoppingCart')
 
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 

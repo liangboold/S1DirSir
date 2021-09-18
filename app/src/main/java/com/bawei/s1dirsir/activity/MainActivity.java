@@ -2,9 +2,6 @@ package com.bawei.s1dirsir.activity;
 
 
 import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentPagerAdapter;
@@ -17,7 +14,6 @@ import com.bawei.s1dirsir.adapter.FragmentAdapter;
 import com.bawei.s1dirsir.fragment.MainFragment;
 import com.bawei.s1dirsir.fragment.MessageFragment;
 import com.bawei.s1dirsir.fragment.MyFragment;
-import com.bawei.s1dirsir.fragment.ShopCarFragment;
 import com.bawei.s1dirsir.injection.component.DaggerFoodComponent;
 import com.bawei.s1dirsir.injection.module.FoodModule;
 import com.bawei.s1dirsir.presenter.FoodPersenter;
@@ -26,6 +22,7 @@ import com.bawei.s1dirsir.bean.JsonBean;
 import com.bawei.s1dirsir.contract.FoodContract;
 import com.bawei.s1dirsir.fragment.ClassFragment;
 import com.bw.mvp.view.BaseMVPActivity;
+import com.bw.shoppingcart.ShopCarFragment;
 
 import java.util.ArrayList;
 
