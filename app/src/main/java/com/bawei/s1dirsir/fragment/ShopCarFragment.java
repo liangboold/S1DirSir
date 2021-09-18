@@ -11,25 +11,18 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 
 import com.bawei.s1dirsir.R;
+import com.bw.mvp.view.BaseMVPFragment;
 
-public class ShopCarFragment extends Fragment {
+public class ShopCarFragment extends BaseMVPFragment {
 
-    private View inflate;
     private TextView shopTextUpdata;
     private CheckBox shopBtnAll;
     private Button shopBtnPay;
     private TextView shopTextPrice;
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        inflate = inflater.inflate(R.layout.fragment_shop_car, container, false);
-        initView();
-        initData();
-        return inflate;
-    }
 
-    private void initData() {
+    @Override
+    protected void initData() {
         shopTextUpdata.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,10 +39,26 @@ public class ShopCarFragment extends Fragment {
         });
     }
 
-    private void initView() {
-        shopTextUpdata = (TextView) inflate.findViewById(R.id.shop_text_updata);
-        shopBtnAll = (CheckBox) inflate.findViewById(R.id.shop_btn_all);
-        shopBtnPay = (Button) inflate.findViewById(R.id.shop_btn_pay);
-        shopTextPrice = (TextView) inflate.findViewById(R.id.shop_text_price);
+    @Override
+    protected void initEvent() {
+
+    }
+
+    @Override
+    protected void init() {
+        shopTextUpdata = (TextView) findViewById(R.id.shop_text_updata);
+        shopBtnAll = (CheckBox) findViewById(R.id.shop_btn_all);
+        shopBtnPay = (Button) findViewById(R.id.shop_btn_pay);
+        shopTextPrice = (TextView) findViewById(R.id.shop_text_price);
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.fragment_shop_car;
+    }
+
+    @Override
+    protected void injectCompoent() {
+
     }
 }
