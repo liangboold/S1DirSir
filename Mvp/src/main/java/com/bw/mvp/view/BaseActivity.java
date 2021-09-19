@@ -15,7 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
  * @Date 2021/9/16 19:24
  * @Version 1.0
  */
-public abstract class BaseActivity extends AppCompatActivity {
+abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

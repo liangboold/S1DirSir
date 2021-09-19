@@ -16,7 +16,7 @@ import androidx.fragment.app.Fragment;
  * @Date 2021/9/18 10:03
  * @Version 1.0
  */
-public abstract class BaseFragment extends Fragment {
+abstract class BaseFragment extends Fragment {
 
     private View inflate;
 
