@@ -3,11 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="#FCFCFC"
     tools:context=".ShopCarFragment">
 
     <RelativeLayout
+        android:id="@+id/rltop"
         android:background="#FE9C2F"
         android:layout_width="match_parent"
         android:layout_height="@dimen/fragment_head_height">
@@ -31,9 +31,15 @@
             android:layout_marginRight="10dp"/>
     </RelativeLayout>
 
-
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_below="@id/rltop"
+        android:layout_above="@id/rlbottom"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/shop_rv"/>
 
     <RelativeLayout
+        android:id="@+id/rlbottom"
         android:layout_alignParentBottom="true"
         android:background="@color/white"
         android:layout_width="match_parent"

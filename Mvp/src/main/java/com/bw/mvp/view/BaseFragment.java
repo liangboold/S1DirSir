@@ -9,8 +9,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.bw.mvp.R;
-
 /*
  * @ClassName BaseFragment
  * @Description TODO
@@ -32,7 +30,7 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        init();
+        initView();
         initData();
         initEvent();
     }
@@ -42,7 +40,7 @@ public abstract class BaseFragment extends Fragment {
     protected abstract void initEvent();
 
 
-    protected abstract void init();
+    protected abstract void initView();
 
     protected abstract int getLayoutId();
 
