@@ -66,8 +66,6 @@ public class MainFragment extends Fragment {
     private ArrayList list_b = new ArrayList();
     private static int[] b = {R.drawable.one,R.drawable.two,R.drawable.three,R.drawable.four,R.drawable.five};
 
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -212,5 +210,6 @@ public class MainFragment extends Fragment {
         super.onDestroyView();
         datalist.clear();
         list.clear();
+        list_b.clear();
     }
 }

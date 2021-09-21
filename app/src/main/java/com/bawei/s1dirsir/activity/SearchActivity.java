@@ -14,10 +14,13 @@ import com.bawei.s1dirsir.R;
 import com.bw.mvp.view.BaseMVPActivity;
 import com.bw.utils.MyToast;
 
+import java.util.ArrayList;
+
 public class SearchActivity extends BaseMVPActivity {
     private ImageView back;
     private EditText search;
     private TextView scan;
+    private ArrayList<String>list = new ArrayList<>();
 
     @Override
     public void initData() {
@@ -27,23 +30,24 @@ public class SearchActivity extends BaseMVPActivity {
                 finish();
             }
         });
-        String s = search.getText().toString();
+
         scan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(SearchActivity.this, ShopListActivity.class);
-                startActivity(intent);
-                MyToast.showLong(SearchActivity.this,s+"");
+                String s = search.getText().toString();
+//                Intent intent = new Intent(SearchActivity.this, ShopListActivity.class);
+//                startActivity(intent);
+                MyToast.showLong(SearchActivity.this,s);
             }
         });
 
 
-        search.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
+//        search.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//            }
+//        });
     }
 
     @Override
