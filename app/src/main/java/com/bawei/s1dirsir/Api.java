@@ -3,7 +3,9 @@ package com.bawei.s1dirsir;
 import com.bawei.s1dirsir.bean.JsonBean;
 
 import io.reactivex.Observable;
+import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 
 /*
  * @ClassName Api
@@ -13,6 +15,6 @@ import retrofit2.http.GET;
  * @Version 1.0
  */
 public interface Api {
-    @GET("ios/cf/dish_list.php?stage_id=1&limit=20&page=1")
-    Observable<JsonBean> getJson();
+    @POST("category/getCategory")
+    Observable<JsonBean> getJson(@Body Bodys bodys);
 }

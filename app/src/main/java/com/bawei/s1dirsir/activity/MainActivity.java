@@ -2,6 +2,7 @@ package com.bawei.s1dirsir.activity;
 
 
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentPagerAdapter;
@@ -25,6 +26,7 @@ import com.bw.mvp.view.BaseMVPActivity;
 import com.bw.shoppingcart.ShopCarFragment;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -37,7 +39,6 @@ public class MainActivity extends BaseMVPActivity<FoodPersenter> implements Food
 
     @Override
     public void initData() {
-
         list.add(new MainFragment());
         list.add(new ClassFragment());
         list.add(new ShopCarFragment());
@@ -116,8 +117,9 @@ public class MainActivity extends BaseMVPActivity<FoodPersenter> implements Food
 
     @Override
     public void foodSuccess(JsonBean jsonBean) {
-//        Toast.makeText(this, jsonBean.toString(), Toast.LENGTH_SHORT).show();
-        Log.i("123456", "foodSuccess: "+jsonBean.getData().size());
+        Toast.makeText(this, jsonBean.toString(), Toast.LENGTH_SHORT).show();
+        ArrayList<JsonBean.DataBean> data = (ArrayList<JsonBean.DataBean>) jsonBean.getData();
+        getIntent().putParcelableArrayListExtra("data",data);
     }
 
     @Override

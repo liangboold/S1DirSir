@@ -13,29 +13,37 @@ import java.util.List;
  * @Version 1.0
  */
 public class JsonBean {
+
     /**
-     * ret : 1
-     * data : [{"id":"8289","title":"油焖大虾","pic":"http://www.qubaobei.com/ios/cf/uploadfile/132/9/8289.jpg","collect_num":"1670","food_str":"大虾 葱 生姜 植物油 料酒","num":1670},{"id":"2127","title":"四川回锅肉","pic":"http://www.qubaobei.com/ios/cf/uploadfile/132/3/2127.jpg","collect_num":"1591","food_str":"猪肉 青蒜 青椒 红椒 姜片","num":1591},{"id":"30630","title":"超简单芒果布丁","pic":"http://www.qubaobei.com/ios/cf/uploadfile/132/31/30630.jpg","collect_num":"1549","food_str":"QQ糖 牛奶 芒果","num":1549},{"id":"9073","title":"家常红烧鱼","pic":"http://www.qubaobei.com/ios/cf/uploadfile/132/10/9073.jpg","collect_num":"1426","food_str":"鲜鱼 姜 葱 蒜 花椒","num":1426},{"id":"10097","title":"家常煎豆腐","pic":"http://www.qubaobei.com/ios/cf/uploadfile/132/11/10097.jpg","collect_num":"1419","food_str":"豆腐 新鲜红椒 青椒 葱花 油","num":1419},{"id":"10509","title":"水煮肉片","pic":"http://www.qubaobei.com/ios/cf/uploadfile/132/11/10509.jpg","collect_num":"1342","food_str":"瘦猪肉 生菜 豆瓣酱 干辣椒 花椒","num":1342},{"id":"46968","title":"红糖苹果银耳汤","pic":"http://www.qubaobei.com/ios/cf/uploadfile/132/47/46968.jpg","collect_num":"1253","food_str":"银耳 苹果 红糖","num":1253},{"id":"10191","title":"麻婆豆腐","pic":"http://www.qubaobei.com/ios/cf/uploadfile/132/11/10191.jpg","collect_num":"1224","food_str":"豆腐 肉末 生抽 白糖 芝麻油","num":1224},{"id":"2372","title":"皮蛋瘦肉粥","pic":"http://www.qubaobei.com/ios/cf/uploadfile/132/3/2372.jpg","collect_num":"1151","food_str":"大米 皮蛋 猪肉 油条 香葱","num":1151},{"id":"2166","title":"蚂蚁上树","pic":"http://www.qubaobei.com/ios/cf/uploadfile/132/3/2166.jpg","collect_num":"1145","food_str":"红薯粉 肉 姜 蒜 花椒","num":1145}]
+     * status : 0
+     * message : 分类列表获取成功
+     * data : [{"id":1,"categoryName":"电脑办公","parentId":0},{"id":2,"categoryName":"手机数码","parentId":0},{"id":3,"categoryName":"男装","parentId":0},{"id":4,"categoryName":"女装","parentId":0},{"id":5,"categoryName":"家用电器","parentId":0},{"id":6,"categoryName":"食品生鲜","parentId":0},{"id":7,"categoryName":"酒水饮料","parentId":0},{"id":8,"categoryName":"玩具乐器","parentId":0},{"id":9,"categoryName":"汽车用品","parentId":0},{"id":10,"categoryName":"家具家装","parentId":0},{"id":11,"categoryName":"礼品鲜花","parentId":0},{"id":12,"categoryName":"生活旅行","parentId":0},{"id":13,"categoryName":"二手商品","parentId":0}]
      */
 
-    private int ret;
+    private int status;
+    private String message;
     /**
-     * id : 8289
-     * title : 油焖大虾
-     * pic : http://www.qubaobei.com/ios/cf/uploadfile/132/9/8289.jpg
-     * collect_num : 1670
-     * food_str : 大虾 葱 生姜 植物油 料酒
-     * num : 1670
+     * id : 1
+     * categoryName : 电脑办公
+     * parentId : 0
      */
 
     private List<DataBean> data;
 
-    public int getRet() {
-        return ret;
+    public int getStatus() {
+        return status;
     }
 
-    public void setRet(int ret) {
-        this.ret = ret;
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     public List<DataBean> getData() {
@@ -49,26 +57,21 @@ public class JsonBean {
     @Override
     public String toString() {
         return "JsonBean{" +
-                "ret=" + ret +
+                "status=" + status +
+                ", message='" + message + '\'' +
                 ", data=" + data +
                 '}';
     }
 
     public static class DataBean implements Parcelable {
-        private String id;
-        private String title;
-        private String pic;
-        private String collect_num;
-        private String food_str;
-        private int num;
+        private int id;
+        private String categoryName;
+        private int parentId;
 
         protected DataBean(Parcel in) {
-            id = in.readString();
-            title = in.readString();
-            pic = in.readString();
-            collect_num = in.readString();
-            food_str = in.readString();
-            num = in.readInt();
+            id = in.readInt();
+            categoryName = in.readString();
+            parentId = in.readInt();
         }
 
         public static final Creator<DataBean> CREATOR = new Creator<DataBean>() {
@@ -83,52 +86,37 @@ public class JsonBean {
             }
         };
 
-        public String getId() {
+        public int getId() {
             return id;
         }
 
-        public void setId(String id) {
+        public void setId(int id) {
             this.id = id;
         }
 
-        public String getTitle() {
-            return title;
+        public String getCategoryName() {
+            return categoryName;
         }
 
-        public void setTitle(String title) {
-            this.title = title;
+        public void setCategoryName(String categoryName) {
+            this.categoryName = categoryName;
         }
 
-        public String getPic() {
-            return pic;
+        public int getParentId() {
+            return parentId;
         }
 
-        public void setPic(String pic) {
-            this.pic = pic;
+        public void setParentId(int parentId) {
+            this.parentId = parentId;
         }
 
-        public String getCollect_num() {
-            return collect_num;
-        }
-
-        public void setCollect_num(String collect_num) {
-            this.collect_num = collect_num;
-        }
-
-        public String getFood_str() {
-            return food_str;
-        }
-
-        public void setFood_str(String food_str) {
-            this.food_str = food_str;
-        }
-
-        public int getNum() {
-            return num;
-        }
-
-        public void setNum(int num) {
-            this.num = num;
+        @Override
+        public String toString() {
+            return "DataBean{" +
+                    "id=" + id +
+                    ", categoryName='" + categoryName + '\'' +
+                    ", parentId=" + parentId +
+                    '}';
         }
 
         @Override
@@ -138,12 +126,9 @@ public class JsonBean {
 
         @Override
         public void writeToParcel(Parcel dest, int flags) {
-            dest.writeString(id);
-            dest.writeString(title);
-            dest.writeString(pic);
-            dest.writeString(collect_num);
-            dest.writeString(food_str);
-            dest.writeInt(num);
+            dest.writeInt(id);
+            dest.writeString(categoryName);
+            dest.writeInt(parentId);
         }
     }
 }
