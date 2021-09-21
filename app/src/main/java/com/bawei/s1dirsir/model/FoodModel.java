@@ -3,6 +3,7 @@ package com.bawei.s1dirsir.model;
 
 
 import com.bawei.s1dirsir.Api;
+import com.bawei.s1dirsir.Bodys;
 import com.bawei.s1dirsir.bean.JsonBean;
 import com.bawei.s1dirsir.contract.FoodContract;
 import com.bw.mvp.model.IModel;
@@ -28,7 +29,7 @@ public class FoodModel implements IModel {
 
     public Observable<JsonBean> getFood() {
 
-        return RetrofitFactory.getRetrofitFactory().createRetrofit().create(Api.class).getJson();
+        return RetrofitFactory.getRetrofitFactory().createRetrofit().create(Api.class).getJson(new Bodys(0));
 
     }
 }

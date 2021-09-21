@@ -8,7 +8,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.bw.shoppingcart"
+       // applicationId "com.bw.shoppingcart"
         minSdkVersion 24
         targetSdkVersion 30
         versionCode 1
@@ -41,7 +41,14 @@ android {
 }
 
 dependencies {
-
+    implementation project(path: ':Utils')
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.22'//万能适配器
+    implementation 'com.google.code.gson:gson:2.8.2'
+    implementation 'com.lzy.net:okgo:3.0.4'//OkGo网络框架
+    implementation project(path: ':Utils')
+    implementation 'ren.qinc.numberbutton:numberbutton:0.0.1'
+    implementation project(path: ':Mvp')
+    implementation project(path: ':Net')
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.1'

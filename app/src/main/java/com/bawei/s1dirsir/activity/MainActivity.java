@@ -2,8 +2,6 @@ package com.bawei.s1dirsir.activity;
 
 
 import android.util.Log;
-import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
@@ -17,7 +15,6 @@ import com.bawei.s1dirsir.adapter.FragmentAdapter;
 import com.bawei.s1dirsir.fragment.MainFragment;
 import com.bawei.s1dirsir.fragment.MessageFragment;
 import com.bawei.s1dirsir.fragment.MyFragment;
-import com.bawei.s1dirsir.fragment.ShopCarFragment;
 import com.bawei.s1dirsir.injection.component.DaggerFoodComponent;
 import com.bawei.s1dirsir.injection.module.FoodModule;
 import com.bawei.s1dirsir.presenter.FoodPersenter;
@@ -26,8 +23,10 @@ import com.bawei.s1dirsir.bean.JsonBean;
 import com.bawei.s1dirsir.contract.FoodContract;
 import com.bawei.s1dirsir.fragment.ClassFragment;
 import com.bw.mvp.view.BaseMVPActivity;
+import com.bw.shoppingcart.ShopCarFragment;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -40,7 +39,6 @@ public class MainActivity extends BaseMVPActivity<FoodPersenter> implements Food
 
     @Override
     public void initData() {
-
         list.add(new MainFragment());
         list.add(new ClassFragment());
         list.add(new ShopCarFragment());
@@ -119,8 +117,9 @@ public class MainActivity extends BaseMVPActivity<FoodPersenter> implements Food
 
     @Override
     public void foodSuccess(JsonBean jsonBean) {
-//        Toast.makeText(this, jsonBean.toString(), Toast.LENGTH_SHORT).show();
-        Log.i("123456", "foodSuccess: "+jsonBean.getData().size());
+        Toast.makeText(this, jsonBean.toString(), Toast.LENGTH_SHORT).show();
+        ArrayList<JsonBean.DataBean> data = (ArrayList<JsonBean.DataBean>) jsonBean.getData();
+        getIntent().putParcelableArrayListExtra("data",data);
     }
 
     @Override

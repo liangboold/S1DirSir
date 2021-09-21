@@ -11,7 +11,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bawei.s1dirsir.R;
-import com.bw.mvp.view.BaseActivity;
 import com.bw.mvp.view.BaseMVPActivity;
 import com.bw.utils.MyToast;
 
