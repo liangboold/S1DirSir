@@ -24,9 +24,7 @@ import com.bawei.s1dirsir.contract.FoodContract;
 import com.bawei.s1dirsir.fragment.ClassFragment;
 import com.bw.mvp.view.BaseMVPActivity;
 import com.bw.shoppingcart.ShopCarFragment;
-
 import java.util.ArrayList;
-import java.util.List;
 
 import javax.inject.Inject;
 

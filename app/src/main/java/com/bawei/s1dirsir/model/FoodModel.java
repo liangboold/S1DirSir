@@ -5,16 +5,12 @@ package com.bawei.s1dirsir.model;
 import com.bawei.s1dirsir.Api;
 import com.bawei.s1dirsir.Bodys;
 import com.bawei.s1dirsir.bean.JsonBean;
-import com.bawei.s1dirsir.contract.FoodContract;
 import com.bw.mvp.model.IModel;
 import com.bw.net.RetrofitFactory;
 
 import javax.inject.Inject;
 
 import io.reactivex.Observable;
-import io.reactivex.Observer;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.schedulers.Schedulers;
 
 /*
  * @ClassName FoodModel
