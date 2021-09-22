@@ -38,8 +38,10 @@ public class ShopCarFragment extends BaseMVPFragment {
                     public void onSuccess(Response<String> response) {
                         List<JsonBean.DataBean> data = new Gson().fromJson(response.body(), JsonBean.class).getData();
                         shopRv.setAdapter(new GoodRv(data));
+
                     }
                 });
+
     }
 
     private class GoodRv extends BaseQuickAdapter<JsonBean.DataBean, BaseViewHolder> {
@@ -102,7 +104,7 @@ public class ShopCarFragment extends BaseMVPFragment {
 
     @Override
     protected int getLayoutId() {
-        return R.layout.fragment_shop;
+        return R.layout.shopingcar;
     }
 
     @Override
