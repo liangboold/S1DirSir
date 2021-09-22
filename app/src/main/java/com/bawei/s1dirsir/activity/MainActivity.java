@@ -115,7 +115,6 @@ public class MainActivity extends BaseMVPActivity<FoodPersenter> implements Food
 
     @Override
     public void foodSuccess(JsonBean jsonBean) {
-        Toast.makeText(this, jsonBean.toString(), Toast.LENGTH_SHORT).show();
         ArrayList<JsonBean.DataBean> data = (ArrayList<JsonBean.DataBean>) jsonBean.getData();
         getIntent().putParcelableArrayListExtra("data",data);
     }

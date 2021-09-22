@@ -10,17 +10,31 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.bawei.s1dirsir.R;
+import com.bw.mvp.view.BaseMVPFragment;
 import com.bw.shoppingcart.JsonBean;
 
 import java.util.ArrayList;
 
-public class ClassFragment extends Fragment {
+public class ClassFragment extends BaseMVPFragment {
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    protected void initData() {
 
-        return inflater.inflate(R.layout.fragment_class, container, false);
+    }
+
+    @Override
+    protected void initEvent() {
+
+    }
+
+    @Override
+    protected void initView() {
+
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.fragment_class;
     }
 
     @Override
@@ -29,5 +43,10 @@ public class ClassFragment extends Fragment {
         ArrayList<JsonBean.DataBean> data = intent.getParcelableArrayListExtra("data");
         System.out.println(data);
         super.onResume();
+    }
+
+    @Override
+    protected void injectCompoent() {
+
     }
 }

@@ -2,6 +2,7 @@ package com.bawei.s1dirsir.model;
 
 import com.bawei.s1dirsir.Api;
 import com.bawei.s1dirsir.Bodys;
+import com.bawei.s1dirsir.GetGoodsListReq;
 import com.bawei.s1dirsir.bean.BaseBean;
 import com.bw.mvp.model.IModel;
 import com.bw.net.RetrofitFactory;
@@ -23,6 +24,6 @@ public class HomeModel implements IModel {
     }
 
     public Observable<BaseBean> getHome(){
-        return  RetrofitFactory.getRetrofitFactory().createRetrofit().create(Api.class).getHome(new Bodys(0));
+        return  RetrofitFactory.getRetrofitFactory().createRetrofit().create(Api.class).getHome(new GetGoodsListReq(14,1));
     }
 }

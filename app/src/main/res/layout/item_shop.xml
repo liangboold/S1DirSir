@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_margin="5dp">
+
+    <ImageView
+        android:id="@+id/image_shop"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"></ImageView>
+    <TextView
+        android:id="@+id/text_desc"
+        android:layout_width="match_parent"
+        android:layout_height="18dp"
+        android:layout_margin="1dp"></TextView>
+    <TextView
+        android:id="@+id/text_num"
+        android:layout_width="match_parent"
+        android:layout_height="18dp"
+        android:layout_margin="1dp"
+        android:textColor="#F44336"></TextView>
+    <TextView
+        android:id="@+id/text_money"
+        android:layout_width="match_parent"
+        android:layout_height="18dp"
+        android:layout_margin="1dp"></TextView>
+</LinearLayout>
