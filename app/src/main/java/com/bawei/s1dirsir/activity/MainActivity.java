@@ -77,7 +77,10 @@ public class MainActivity extends BaseMVPActivity<FoodPersenter> implements Food
 
     @Override
     protected void initEvent() {
-        presenter.initFood();
+        presenter.initFood(0);
+        presenter.initClass(1);
+        presenter.initClassThere(2);
+
     }
 
     @Override
@@ -117,6 +120,18 @@ public class MainActivity extends BaseMVPActivity<FoodPersenter> implements Food
     public void foodSuccess(JsonBean jsonBean) {
         ArrayList<JsonBean.DataBean> data = (ArrayList<JsonBean.DataBean>) jsonBean.getData();
         getIntent().putParcelableArrayListExtra("data",data);
+    }
+
+    @Override
+    public void classSuccess(JsonBean jsonBean) {
+        ArrayList<JsonBean.DataBean> datas = (ArrayList<JsonBean.DataBean>) jsonBean.getData();
+        getIntent().putParcelableArrayListExtra("datatwo",datas);
+    }
+
+    @Override
+    public void thereSuccess(JsonBean jsonBean) {
+        ArrayList<JsonBean.DataBean> datass = (ArrayList<JsonBean.DataBean>) jsonBean.getData();
+        getIntent().putParcelableArrayListExtra("datathere",datass);
     }
 
     @Override

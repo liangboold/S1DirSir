@@ -23,9 +23,19 @@ public class FoodModel implements IModel {
     @Inject
     public FoodModel() {}
 
-    public Observable<JsonBean> getFood() {
+    public Observable<JsonBean> getFood(int parentid) {
 
-        return RetrofitFactory.getRetrofitFactory().createRetrofit().create(Api.class).getJson(new Bodys(0));
+        return RetrofitFactory.getRetrofitFactory().createRetrofit().create(Api.class).getJson(new Bodys(parentid));
+
+    }
+    public Observable<JsonBean> getClass(int parentid) {
+
+        return RetrofitFactory.getRetrofitFactory().createRetrofit().create(Api.class).getJson(new Bodys(parentid));
+
+    }
+    public Observable<JsonBean> getThere(int parentid) {
+
+        return RetrofitFactory.getRetrofitFactory().createRetrofit().create(Api.class).getJson(new Bodys(parentid));
 
     }
 }

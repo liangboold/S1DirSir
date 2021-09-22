@@ -27,8 +27,8 @@ public class FoodPersenter extends BasePresenter<FoodRepository, FoodContract> {
     public FoodPersenter() {
     }
 
-    public void initFood(){
-        repository.getFood()
+    public void initFood(int parentid){
+        repository.getFood(parentid)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<JsonBean>() {
@@ -53,5 +53,69 @@ public class FoodPersenter extends BasePresenter<FoodRepository, FoodContract> {
                     }
                 });
 
+
+
     }
+
+    public void initClass(int parentid){
+        repository.getClass(parentid)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<JsonBean>() {
+                    @Override
+                    public void onSubscribe(@NonNull Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(@NonNull JsonBean jsonBean) {
+                        view.classSuccess(jsonBean);
+                    }
+
+                    @Override
+                    public void onError(@NonNull Throwable e) {
+                        view.foodFailed(e);
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+
+
+
+    }
+
+    public void initClassThere(int parentid){
+        repository.getThere(parentid)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<JsonBean>() {
+                    @Override
+                    public void onSubscribe(@NonNull Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(@NonNull JsonBean jsonBean) {
+                        view.thereSuccess(jsonBean);
+                    }
+
+                    @Override
+                    public void onError(@NonNull Throwable e) {
+                        view.foodFailed(e);
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+
+
+
+    }
+
+
 }

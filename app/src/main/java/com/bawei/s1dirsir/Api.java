@@ -21,4 +21,5 @@ public interface Api {
 
     @POST("goods/getGoodsList")
     Observable<BaseBean> getHome(@Body GetGoodsListReq bodys);
+
 }
