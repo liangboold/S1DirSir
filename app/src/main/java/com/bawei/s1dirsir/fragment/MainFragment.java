@@ -8,6 +8,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
@@ -26,14 +27,23 @@ import android.widget.Toast;
 import com.bawei.s1dirsir.ImageUrl;
 import com.bawei.s1dirsir.R;
 import com.bawei.s1dirsir.VerticalTextview;
+import com.bawei.s1dirsir.activity.DetailsActivity;
 import com.bawei.s1dirsir.activity.MainActivity;
 import com.bawei.s1dirsir.activity.SearchActivity;
 import com.bawei.s1dirsir.adapter.DiscountAdapter;
+import com.bawei.s1dirsir.adapter.ShopAdapter;
+import com.bawei.s1dirsir.bean.BaseBean;
 import com.bawei.s1dirsir.bean.JsonBean;
 import com.bawei.s1dirsir.contract.FoodContract;
+import com.bawei.s1dirsir.contract.HomeContract;
+import com.bawei.s1dirsir.injection.component.DaggerHomeComponent;
+import com.bawei.s1dirsir.injection.module.HomeModule;
 import com.bawei.s1dirsir.presenter.FoodPersenter;
+import com.bawei.s1dirsir.presenter.HomePresenter;
+import com.bw.mvp.view.BaseMVPFragment;
 import com.bw.utils.ImgUtil;
 import com.bw.utils.MyToast;
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.youth.banner.Banner;
 import com.youth.banner.loader.ImageLoader;
 import com.zhouwei.mzbanner.MZBannerView;
@@ -47,10 +57,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.inject.Inject;
+
 import me.crosswall.lib.coverflow.CoverFlow;
 import me.crosswall.lib.coverflow.core.PageItemClickListener;
 
-public class MainFragment extends Fragment {
+public class MainFragment extends BaseMVPFragment implements HomeContract {
     private EditText search;
     private TextView scan;
     private Banner banner;
@@ -65,34 +77,20 @@ public class MainFragment extends Fragment {
     private MZBannerView fgHomeMzBanner;
     private ArrayList list_b = new ArrayList();
     private static int[] b = {R.drawable.one,R.drawable.two,R.drawable.three,R.drawable.four,R.drawable.five};
+    private RecyclerView recyclerView;
+    private ShopAdapter shopAdapter;
 
+    @Inject
+    HomePresenter presenter;
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        inflate = inflater.inflate(R.layout.fragment_main, container, false);
-        initView();
-        initData();
-        //公告开始
-        mTextview.startAutoScroll();
-        return inflate;
-    }
-
-    public void initView() {
-        search = (EditText) inflate.findViewById(R.id.search);
-        scan = (TextView) inflate.findViewById(R.id.scan);
-        banner = (Banner) inflate.findViewById(R.id.banner);
-        gridview = (GridView) inflate.findViewById(R.id.gridview);
-        mTextview = (VerticalTextview) inflate.findViewById(R.id.textview);
-        rv = (RecyclerView) inflate.findViewById(R.id.rv);
-        fgHomeMzBanner = (MZBannerView) inflate.findViewById(R.id.fg_home_mzBanner);
-    }
-
-    public void initData() {
+    protected void initData() {
         bannerView();
         gridviewView();
         pagerView();
         gonggaoView();
         recyView();
+        //公告开始
+        mTextview.startAutoScroll();
         scan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -106,7 +104,68 @@ public class MainFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
     }
+
+    @Override
+    protected void initEvent() {
+        presenter.initHome();
+    }
+
+    @Override
+    protected void initView() {
+        search = (EditText) findViewById(R.id.search);
+        scan = (TextView) findViewById(R.id.scan);
+        banner = (Banner) findViewById(R.id.banner);
+        gridview = (GridView) findViewById(R.id.gridview);
+        mTextview = (VerticalTextview) findViewById(R.id.textview);
+        rv = (RecyclerView) findViewById(R.id.rv);
+        fgHomeMzBanner = (MZBannerView) findViewById(R.id.fg_home_mzBanner);
+        recyclerView = findViewById(R.id.rv1);
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.fragment_main;
+    }
+
+    @Override
+    public void foodSuccess(BaseBean baseBean) {
+        List<BaseBean.DataBean> data = baseBean.getData();
+        shopAdapter = new ShopAdapter(R.layout.item_shop, data);
+        recyclerView.setAdapter(shopAdapter);
+        recyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
+        shopAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                Intent intent = new Intent(getContext(), DetailsActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    @Override
+    public void foodFailed(Throwable throwable) {
+
+    }
+
+    @Override
+    protected void injectCompoent() {
+        DaggerHomeComponent.builder().fragmentComponent(fragmentComponent)
+                .homeModule(new HomeModule(this))
+                .build().injectFragment(this);
+    }
+
+
+//    @Override
+//    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+//                             Bundle savedInstanceState) {
+//        inflate = inflater.inflate(R.layout.fragment_main, container, false);
+//        initView();
+//        initData();
+
+//        return inflate;
+//    }
 
     private void recyView() {
         DiscountAdapter discountAdapter = new DiscountAdapter(R.layout.discount_item, ImageUrl.arrayList);

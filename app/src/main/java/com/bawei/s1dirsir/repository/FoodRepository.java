@@ -21,7 +21,15 @@ public class FoodRepository extends BaseRepository<FoodModel> {
     @Inject
     public FoodRepository(){}
 
-    public Observable<JsonBean> getFood(){
-        return model.getFood();
+    public Observable<JsonBean> getFood(int parentid){
+        return model.getFood(parentid);
+    }
+
+    public Observable<JsonBean> getClass(int parentid){
+        return model.getClass(parentid);
+    }
+
+    public Observable<JsonBean> getThere(int parentid){
+        return model.getThere(parentid);
     }
 }

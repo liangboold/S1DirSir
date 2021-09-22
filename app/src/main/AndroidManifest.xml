@@ -12,12 +12,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.S1DirSir">
-        <activity android:name=".activity.ShopListActivity"></activity>
+        <activity android:name=".activity.DetailsActivity"></activity>
+        <activity android:name=".activity.ShopListActivity" />
         <activity android:name=".activity.SearchActivity" />
-        <activity android:name="com.bawei.s1dirsir.activity.GuidanceActivity" android:exported="true" android:theme="@style/Page_back">
-
-        </activity>
-        <activity android:name=".activity.MainActivity" >
+        <activity
+            android:name=".activity.GuidanceActivity"
+            android:exported="true"
+            android:theme="@style/Page_back"></activity>
+        <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -7,6 +7,7 @@ import com.bawei.s1dirsir.bean.JsonBean;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 
+
 import java.util.List;
 
 /*
@@ -21,7 +22,7 @@ import java.util.List;
  * @Version 1.0
  */
 public class ClassAdapter extends BaseQuickAdapter<JsonBean.DataBean, BaseViewHolder> {
-    public ClassAdapter(int layoutResId, @Nullable @org.jetbrains.annotations.Nullable List<JsonBean.DataBean> data) {
+    public ClassAdapter(int layoutResId, List<JsonBean.DataBean> data) {
         super(layoutResId, data);
     }
 

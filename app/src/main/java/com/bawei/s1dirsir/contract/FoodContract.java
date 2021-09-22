@@ -18,6 +18,8 @@ import io.reactivex.Observable;
 public interface FoodContract extends IView {
 
     void foodSuccess(JsonBean jsonBean);
+    void classSuccess(JsonBean jsonBean);
+    void thereSuccess(JsonBean jsonBean);
     void foodFailed(Throwable throwable);
 
 

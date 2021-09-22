@@ -1,6 +1,7 @@
 package com.bawei.s1dirsir.injection.component;
 
 
+import com.bawei.s1dirsir.fragment.MainFragment;
 import com.bawei.s1dirsir.fragment.MyFragment;
 import com.bawei.s1dirsir.injection.module.HomeModule;
 import com.bw.di.component.FragmentComponent;
@@ -18,5 +19,5 @@ import dagger.Component;
 @PerComponentScope
 @Component(dependencies = {FragmentComponent.class},modules = {HomeModule.class})
 public interface HomeComponent {
-    void injectFragment(MyFragment myFragment);
+    void injectFragment(MainFragment mainFragment);
 }

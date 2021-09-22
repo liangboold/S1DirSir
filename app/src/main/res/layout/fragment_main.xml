@@ -93,14 +93,24 @@
                 android:id="@+id/fg_home_mzBanner"
                 android:layout_width="match_parent"
                 android:layout_height="140dp"
-                app:open_mz_mode="true"
-                app:middle_page_cover="true"
                 app:canLoop="false"
                 app:indicatorAlign="center"
-                app:indicatorPaddingLeft="10dp">
-            </com.zhouwei.mzbanner.MZBannerView>
-
+                app:indicatorPaddingLeft="10dp"
+                app:middle_page_cover="true"
+                app:open_mz_mode="true"></com.zhouwei.mzbanner.MZBannerView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="推荐商品"
+                android:textColor="#ff6600"
+                android:gravity="center"
+                android:textSize="25dp"></TextView>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></androidx.recyclerview.widget.RecyclerView>
         </LinearLayout>
+
     </ScrollView>
 
 </LinearLayout>

@@ -20,5 +20,6 @@ public interface Api {
     Observable<JsonBean> getJson(@Body Bodys bodys);
 
     @POST("goods/getGoodsList")
-    Observable<BaseBean> getHome(@Body Bodys bodys);
+    Observable<BaseBean> getHome(@Body GetGoodsListReq bodys);
+
 }

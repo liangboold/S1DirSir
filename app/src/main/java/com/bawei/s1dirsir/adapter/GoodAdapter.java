@@ -22,13 +22,13 @@ import java.util.List;
  * @Version 1.0
  */
 public class GoodAdapter extends BaseQuickAdapter<JsonBean.DataBean, BaseViewHolder> {
-    public GoodAdapter(int layoutResId, @Nullable @org.jetbrains.annotations.Nullable List<JsonBean.DataBean> data) {
+    public GoodAdapter(int layoutResId,  List<JsonBean.DataBean> data) {
         super(layoutResId, data);
     }
 
     @Override
     protected void convert(BaseViewHolder helper, JsonBean.DataBean item) {
         helper.setText(R.id.tv_right,item.getCategoryName());
-        ImgUtil.imgLoad(item,helper.getView(R.id.img_right));
+        ImgUtil.imgLoad(item.getCategoryIcon(),helper.getView(R.id.img_right));
     }
 }

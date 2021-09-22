@@ -9,12 +9,32 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.bawei.s1dirsir.R;
+import com.bw.mvp.view.BaseMVPFragment;
 
-public class MessageFragment extends Fragment {
+public class MessageFragment extends BaseMVPFragment {
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_message, container, false);
+    protected void initData() {
+
+    }
+
+    @Override
+    protected void initEvent() {
+
+    }
+
+    @Override
+    protected void initView() {
+
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.fragment_message;
+    }
+
+    @Override
+    protected void injectCompoent() {
+
     }
 }
