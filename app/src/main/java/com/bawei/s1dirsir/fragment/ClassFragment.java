@@ -72,6 +72,7 @@ public class ClassFragment extends BaseMVPFragment implements FoodContract {
                 else {
 
                 }
+
             }
         });
 
