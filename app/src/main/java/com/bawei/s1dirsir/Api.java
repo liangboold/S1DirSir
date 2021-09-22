@@ -1,5 +1,6 @@
 package com.bawei.s1dirsir;
 
+import com.bawei.s1dirsir.bean.BaseBean;
 import com.bawei.s1dirsir.bean.JsonBean;
 
 import io.reactivex.Observable;
@@ -17,4 +18,7 @@ import retrofit2.http.POST;
 public interface Api {
     @POST("category/getCategory")
     Observable<JsonBean> getJson(@Body Bodys bodys);
+
+    @POST("goods/getGoodsList")
+    Observable<BaseBean> getHome(@Body Bodys bodys);
 }
