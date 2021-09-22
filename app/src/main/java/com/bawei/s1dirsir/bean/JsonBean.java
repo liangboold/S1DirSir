@@ -67,6 +67,9 @@ public class JsonBean {
         private int id;
         private String categoryName;
         private int parentId;
+        private boolean mIsFromClick = false;
+
+
 
         protected DataBean(Parcel in) {
             id = in.readInt();
@@ -85,6 +88,13 @@ public class JsonBean {
                 return new DataBean[size];
             }
         };
+
+        public DataBean(int id, String categoryName, int parentId, boolean mIsFromClick) {
+            this.id = id;
+            this.categoryName = categoryName;
+            this.parentId = parentId;
+            this.mIsFromClick = mIsFromClick;
+        }
 
         public int getId() {
             return id;
@@ -129,6 +139,18 @@ public class JsonBean {
             dest.writeInt(id);
             dest.writeString(categoryName);
             dest.writeInt(parentId);
+        }
+
+        public boolean ismIsFromClick() {
+            return mIsFromClick;
+        }
+
+        public void setmIsFromClick(boolean mIsFromClick) {
+            this.mIsFromClick = mIsFromClick;
+        }
+
+        public static Creator<DataBean> getCREATOR() {
+            return CREATOR;
         }
     }
 }
