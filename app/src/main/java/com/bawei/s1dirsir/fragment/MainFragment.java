@@ -138,7 +138,9 @@ public class MainFragment extends BaseMVPFragment implements HomeContract {
         shopAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                BaseBean.DataBean dataBean = data.get(position);
                 Intent intent = new Intent(getContext(), DetailsActivity.class);
+                intent.putExtra("data",dataBean);
                 startActivity(intent);
             }
         });

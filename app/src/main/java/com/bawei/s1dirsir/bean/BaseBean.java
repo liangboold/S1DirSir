@@ -1,5 +1,8 @@
 package com.bawei.s1dirsir.bean;
 
+import android.os.Parcelable;
+
+import java.io.Serializable;
 import java.util.List;
 
 /*
@@ -69,7 +72,7 @@ public class BaseBean {
                 '}';
     }
 
-    public static class DataBean {
+    public static class DataBean implements Serializable {
         private int id;
         private int categoryId;
         private String goodsDesc;
