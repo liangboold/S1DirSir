@@ -9,14 +9,12 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import com.bw.database.user.GoodsBean;
+import com.bw.database.user.GreenDaoManager;
 import com.bw.mvp.view.BaseMVPFragment;
 import com.bw.utils.ImgUtil;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
-import com.google.gson.Gson;
-import com.lzy.okgo.OkGo;
-import com.lzy.okgo.callback.StringCallback;
-import com.lzy.okgo.model.Response;
 import java.util.List;
 
 import ren.qinc.numberbutton.NumberButton;
@@ -28,54 +26,13 @@ public class ShopCarFragment extends BaseMVPFragment {
     private Button shopBtnPay;
     private TextView shopTextPrice;
     private RecyclerView shopRv;
+    GreenDaoManager greenDaoManager = GreenDaoManager.getInstance();
+    private List<GoodsBean> goodsList;
+    private GoodRvAdapte goodRvAdapte;
 
 
     @Override
     protected void initData() {
-        OkGo.<String>get("http://www.qubaobei.com/ios/cf/dish_list.php?stage_id=1&limit=20&page=1")
-                .execute(new StringCallback() {
-                    @Override
-                    public void onSuccess(Response<String> response) {
-                        List<JsonBean.DataBean> data = new Gson().fromJson(response.body(), JsonBean.class).getData();
-                        shopRv.setAdapter(new GoodRv(data));
-
-                    }
-                });
-
-    }
-
-    private class GoodRv extends BaseQuickAdapter<JsonBean.DataBean, BaseViewHolder> {
-
-        public GoodRv(@Nullable List<JsonBean.DataBean> data) {
-            super(R.layout.item, data);
-        }
-
-        @Override
-        protected void convert(BaseViewHolder helper, JsonBean.DataBean item) {
-            helper.setText(R.id.good_title, item.getTitle());
-            helper.setText(R.id.good_src, item.getFood_str());
-            helper.setText(R.id.good_price, "￥"+item.getNum()+".00");
-            ImgUtil.imgLoadRounded(item.getPic(),helper.getView(R.id.good_img),20);
-            NumberButton view = helper.getView(R.id.number_button);
-            view.setBuyMax(5)//最大购买数量
-                .setCurrentNumber(1)//当前数量
-                .setInventory(item.getNum())//库存
-                .setOnWarnListener(new NumberButton.OnWarnListener() {
-                    @Override
-                    public void onWarningForInventory(int inventory) {
-                        Toast.makeText(getActivity(), "当前库存:" + inventory, Toast.LENGTH_SHORT).show();
-                    }
-
-                    @Override
-                    public void onWarningForBuyMax(int max) {
-                        Toast.makeText(getActivity(), "超过最大购买数:" + max, Toast.LENGTH_SHORT).show();
-                    }
-                });
-        }
-    }
-
-    @Override
-    protected void initEvent() {
         shopTextUpdata.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -92,14 +49,118 @@ public class ShopCarFragment extends BaseMVPFragment {
         });
     }
 
+    private class GoodRvAdapte extends BaseQuickAdapter<GoodsBean, BaseViewHolder> {
+
+        public GoodRvAdapte(@Nullable List<GoodsBean> data) {
+            super(R.layout.item, data);
+        }
+
+        @Override
+        protected void convert(BaseViewHolder helper, GoodsBean item) {
+            TextView good_title = helper.getView(R.id.good_title);
+            good_title.setMaxLines(1);
+            CheckBox checkBox = helper.getView(R.id.good_cb);
+            checkBox.setChecked(item.getIscheck());
+            helper.setText(R.id.good_title, item.getGoodsDesc());
+            helper.setText(R.id.good_src, item.getGoodsDefaultSku());
+            helper.setText(R.id.good_price, "￥"+item.getGoodsDefaultPrice()+".00");
+            ImgUtil.imgLoadRounded(item.getGoodsDefaultIcon(),helper.getView(R.id.good_img),20);
+            NumberButton view = helper.getView(R.id.number_button);
+            view.setBuyMax(5)//最大购买数量
+                .setCurrentNumber(item.getGoodsCount())//当前数量
+                .setOnWarnListener(new NumberButton.OnWarnListener() {
+                    @Override
+                    public void onWarningForInventory(int inventory) {
+                        Toast.makeText(getActivity(), "当前库存:" + inventory, Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onWarningForBuyMax(int max) {
+                        Toast.makeText(getActivity(), "超过最大购买数:" + max, Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+            checkBox.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    item.setIscheck(checkBox.isChecked());
+                    greenDaoManager.goodsUpdata(item);
+                    initIscheckAndPrice();
+                }
+            });
+        }
+    }
+
+    private void initIscheckAndPrice() {
+            int price = 0;
+            int count = 0;
+            for (GoodsBean goodsBean : goodsList) {
+                if (goodsBean.getIscheck()){
+                    count++;
+                    price += Integer.parseInt(goodsBean.getGoodsDefaultPrice()) * goodsBean.getGoodsCount();
+                }
+            }
+            if (count == goodsList.size() && count != 0){
+                shopBtnAll.setChecked(true);
+            }else {
+                shopBtnAll.setChecked(false);
+            }
+            shopTextPrice.setText("合计:￥"+price+".00");
+    }
+
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        initIscheckAndPrice();
+        goodRvAdapte.notifyDataSetChanged();
+    }
+
+    private void initAdpter() {
+        goodRvAdapte = new GoodRvAdapte(goodsList);
+        shopRv.setAdapter(goodRvAdapte);
+    }
+
+    @Override
+    protected void initEvent() {
+        shopBtnAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                for (GoodsBean goodsBean : goodsList) {
+                    goodsBean.setIscheck(shopBtnAll.isChecked());
+                    greenDaoManager.goodsUpdata(goodsBean);
+                }
+                goodRvAdapte.notifyDataSetChanged();
+                initIscheckAndPrice();
+            }
+        });
+        shopBtnPay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (shopBtnPay.getText().equals("删除")){
+                    for (GoodsBean goodsBean : goodsList) {
+                        if (goodsBean.getIscheck()){
+                            goodsList.remove(goodsBean);
+                            greenDaoManager.goodsDel(goodsBean);
+                        }
+                    }
+                    initIscheckAndPrice();
+                    goodRvAdapte.notifyDataSetChanged();
+                }
+            }
+        });
+    }
+
     @Override
     protected void initView() {
+        goodsList = greenDaoManager.getGoodsList();
         shopTextUpdata = (TextView) findViewById(R.id.shop_text_updata);
         shopBtnAll = (CheckBox) findViewById(R.id.shop_btn_all);
         shopBtnPay = (Button) findViewById(R.id.shop_btn_pay);
         shopTextPrice = (TextView) findViewById(R.id.shop_text_price);
         shopRv = (RecyclerView) findViewById(R.id.shop_rv);
         shopRv.setLayoutManager(new LinearLayoutManager(getActivity()));
+        initAdpter();
     }
 
     @Override

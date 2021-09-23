@@ -5,26 +5,26 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.blankj.utilcode.util.Utils;
 
-/**
- * @package:com.bw.database.user
- * @fileName:GreenDaoManager
- * @date on:2021/9/11 8:22
- * @another:HG
- * @email:1572651596@qq.com
- */
-public class GreenDaoManager {
-    private static volatile GreenDaoManager greenDaoManager;
-    private static DaoMaster daoMaster;
-    private static DaoSession daoSession;
-    private static DaoMaster.DevOpenHelper user;
-    private static UserDao userDao;
-    private Context context;
-    
+import java.util.List;
 
-    public static GreenDaoManager getGreenDaoManager() {
-        if(greenDaoManager==null){
+
+public class GreenDaoManager {
+    private final GoodsBeanDao goodsBeanDao;
+
+    public GreenDaoManager() {
+        DaoMaster.DevOpenHelper goods = new DaoMaster.DevOpenHelper(Utils.getApp(), "goods");
+        SQLiteDatabase writableDatabase = goods.getWritableDatabase();
+        DaoMaster daoMaster = new DaoMaster(writableDatabase);
+        DaoSession daoSession = daoMaster.newSession();
+        goodsBeanDao = daoSession.getGoodsBeanDao();
+    }
+
+    private static volatile GreenDaoManager greenDaoManager;
+
+    public static synchronized GreenDaoManager getInstance() {
+        if (greenDaoManager == null){
             synchronized (GreenDaoManager.class){
-                if(greenDaoManager==null){
+                if (greenDaoManager == null){
                     greenDaoManager = new GreenDaoManager();
                 }
             }
@@ -32,33 +32,20 @@ public class GreenDaoManager {
         return greenDaoManager;
     }
 
-    public void init(Context context){
-        this.context = context;
+    public GoodsBeanDao getGoodsBeanDao() {
+        return goodsBeanDao;
     }
 
-
-    public static DaoMaster getDaoMaster() {
-        if(daoMaster==null){
-            user = new DaoMaster.DevOpenHelper(Utils.getApp(), "user");
-            SQLiteDatabase writableDatabase = user.getWritableDatabase();
-            daoMaster = new DaoMaster(writableDatabase);
-        }
-        return daoMaster;
+    public List<GoodsBean> getGoodsList() {
+        return goodsBeanDao.loadAll();
     }
 
-    public static DaoSession getDaoSession() {
-        if(daoSession==null){
-            if(daoMaster==null){
-                daoMaster = getDaoMaster();
-            }
-            daoSession = daoMaster.newSession();
-        }
-        return daoSession;
+    public void goodsDel(GoodsBean goodsBean){
+        goodsBeanDao.delete(goodsBean);
     }
-    
-    public static UserDao getUserDao(){
-        userDao = daoSession.getUserDao();
-        return userDao ;
+
+    public void goodsUpdata(GoodsBean goodsBean){
+        goodsBeanDao.update(goodsBean);
     }
 
 }

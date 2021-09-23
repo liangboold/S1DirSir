@@ -32,6 +32,11 @@ abstract class BaseFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         initView();
         initData();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
         initEvent();
     }
 

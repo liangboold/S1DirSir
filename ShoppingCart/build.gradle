@@ -41,10 +41,9 @@ android {
 }
 
 dependencies {
+    implementation project(path: ':Database')
     implementation project(path: ':Utils')
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.22'//万能适配器
-    implementation 'com.google.code.gson:gson:2.8.2'
-    implementation 'com.lzy.net:okgo:3.0.4'//OkGo网络框架
     implementation project(path: ':Utils')
     implementation 'ren.qinc.numberbutton:numberbutton:0.0.1'
     implementation project(path: ':Mvp')

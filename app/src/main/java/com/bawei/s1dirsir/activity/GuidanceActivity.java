@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import com.bawei.s1dirsir.R;
+import com.bw.database.user.GreenDaoManager;
 import com.bw.mvp.view.BaseMVPActivity;
 
 import java.util.ArrayList;
