@@ -1,6 +1,8 @@
 package com.bawei.s1dirsir.activity;
 
 
+import android.content.Intent;
+import android.os.Parcelable;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -12,6 +14,7 @@ import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 
 import com.bawei.s1dirsir.adapter.FragmentAdapter;
+import com.bawei.s1dirsir.bean.BaseBean;
 import com.bawei.s1dirsir.fragment.MainFragment;
 import com.bawei.s1dirsir.fragment.MessageFragment;
 import com.bawei.s1dirsir.fragment.MyFragment;
@@ -24,7 +27,10 @@ import com.bawei.s1dirsir.contract.FoodContract;
 import com.bawei.s1dirsir.fragment.ClassFragment;
 import com.bw.mvp.view.BaseMVPActivity;
 import com.bw.shoppingcart.ShopCarFragment;
+
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -32,6 +38,7 @@ public class MainActivity extends BaseMVPActivity<FoodPersenter> implements Food
     private ViewPager vp;
     private BottomNavigationBar bar;
     private final ArrayList<Fragment>list = new ArrayList<>();
+    public static List<BaseBean.DataBean> data;
     @Inject
     FoodPersenter presenter;
 
@@ -80,7 +87,7 @@ public class MainActivity extends BaseMVPActivity<FoodPersenter> implements Food
         presenter.initFood(0);
         presenter.initClass(1);
         presenter.initClassThere(2);
-
+        presenter.initPaitrculars();
     }
 
     @Override
@@ -132,6 +139,18 @@ public class MainActivity extends BaseMVPActivity<FoodPersenter> implements Food
     public void thereSuccess(JsonBean jsonBean) {
         ArrayList<JsonBean.DataBean> datass = (ArrayList<JsonBean.DataBean>) jsonBean.getData();
         getIntent().putParcelableArrayListExtra("datathere",datass);
+    }
+
+    @Override
+    public void paitrcularsSuccess(BaseBean baseBean) {
+//        ArrayList<BaseBean.DataBean> data = (ArrayList<BaseBean.DataBean>) baseBean.getData();
+
+        data = baseBean.getData();
+        Intent intent = new Intent(MainActivity.this,PaitrcularsActivity.class);
+        intent.putExtra("datapaitrcu", (Serializable) data);
+
+        Log.i("TAG", "paitrcularsSuccess: _____________"+data);
+
     }
 
     @Override

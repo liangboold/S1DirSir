@@ -4,6 +4,8 @@ package com.bawei.s1dirsir.model;
 
 import com.bawei.s1dirsir.Api;
 import com.bawei.s1dirsir.Bodys;
+import com.bawei.s1dirsir.GetGoodsListReq;
+import com.bawei.s1dirsir.bean.BaseBean;
 import com.bawei.s1dirsir.bean.JsonBean;
 import com.bw.mvp.model.IModel;
 import com.bw.net.RetrofitFactory;
@@ -37,5 +39,9 @@ public class FoodModel implements IModel {
 
         return RetrofitFactory.getRetrofitFactory().createRetrofit().create(Api.class).getJson(new Bodys(parentid));
 
+    }
+
+    public Observable<BaseBean> getpaitrcular(){
+        return  RetrofitFactory.getRetrofitFactory().createRetrofit().create(Api.class).getHome(new GetGoodsListReq(14,1));
     }
 }

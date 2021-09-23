@@ -10,6 +10,9 @@ import android.util.Log;
 import android.view.View;
 
 import com.bawei.s1dirsir.R;
+import com.bawei.s1dirsir.activity.MainActivity;
+import com.bawei.s1dirsir.activity.MoerActivity;
+import com.bawei.s1dirsir.activity.PaitrcularsActivity;
 import com.bawei.s1dirsir.adapter.ClassAdapter;
 import com.bawei.s1dirsir.adapter.GoodAdapter;
 import com.bawei.s1dirsir.bean.BaseBean;
@@ -32,9 +35,10 @@ public class ClassFragment extends BaseMVPFragment implements FoodContract {
     List<JsonBean.DataBean> data;
     List<JsonBean.DataBean> datatwo;
     List<JsonBean.DataBean> datathere;
+    private int currentPosition = 0;
     @Inject
     FoodPersenter presenter;
-
+    GoodAdapter goodAdapter;
 
     @Override
     public void onResume() {
@@ -46,6 +50,7 @@ public class ClassFragment extends BaseMVPFragment implements FoodContract {
         List<JsonBean.DataBean> datatwo = intent.getParcelableArrayListExtra("datatwo");
         List<JsonBean.DataBean> datathere = intent.getParcelableArrayListExtra("datathere");
         classAdapter = new ClassAdapter(R.layout.item_left, data);
+
         rvLeft.addItemDecoration(new DividerItemDecoration(getActivity(), 1));
         rvLeft.setAdapter(classAdapter);
         rvLeft.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -60,13 +65,29 @@ public class ClassFragment extends BaseMVPFragment implements FoodContract {
                 data.get(position).setCheck(true);
                 classAdapter.notifyDataSetChanged();
                 if (position==0){
-                    GoodAdapter classAdapter = new GoodAdapter(R.layout.item_right, datatwo);
-                    rvRight.setAdapter(classAdapter);
+                    goodAdapter = new GoodAdapter(R.layout.item_right, datatwo);
+                    rvRight.setAdapter(goodAdapter);
                     rvRight.setLayoutManager(new StaggeredGridLayoutManager(3,StaggeredGridLayoutManager.VERTICAL));
+                    goodAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                            if (position==0){
+                                Intent intent1 = new Intent(getActivity(), PaitrcularsActivity.class);
+                                startActivity(intent1);
+                            }else if (position==1){
+                                Intent intent1 = new Intent(getActivity(), PaitrcularsActivity.class);
+                                startActivity(intent1);
+                            }else {
+                                Intent intent1 = new Intent(getActivity(), MoerActivity.class);
+                                startActivity(intent1);
+                            }
+
+                        }
+                    });
                 }
                 else if (position==1){
-                    GoodAdapter classAdapter = new GoodAdapter(R.layout.item_right, datathere);
-                    rvRight.setAdapter(classAdapter);
+                     goodAdapter = new GoodAdapter(R.layout.item_right, datathere);
+                    rvRight.setAdapter(goodAdapter);
                     rvRight.setLayoutManager(new StaggeredGridLayoutManager(3,StaggeredGridLayoutManager.VERTICAL));
                 }
                 else {
@@ -75,6 +96,7 @@ public class ClassFragment extends BaseMVPFragment implements FoodContract {
 
             }
         });
+
 
         super.onResume();
     }
@@ -123,6 +145,11 @@ public class ClassFragment extends BaseMVPFragment implements FoodContract {
 
     @Override
     public void thereSuccess(JsonBean jsonBean) {
+
+    }
+
+    @Override
+    public void paitrcularsSuccess(BaseBean baseBean) {
 
     }
 
