@@ -12,13 +12,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.S1DirSir">
-        <activity android:name=".activity.DetailsActivity"></activity>
+        <activity android:name=".activity.MoerActivity"></activity>
+        <activity android:name=".activity.PaitrcularsActivity" />
+        <activity android:name=".activity.DetailsActivity" />
         <activity android:name=".activity.ShopListActivity" />
         <activity android:name=".activity.SearchActivity" />
         <activity
             android:name=".activity.GuidanceActivity"
             android:exported="true"
-            android:theme="@style/Page_back"></activity>
+            android:theme="@style/Page_back" />
         <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

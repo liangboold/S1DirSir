@@ -1,5 +1,6 @@
 package com.bawei.s1dirsir.repository;
 
+import com.bawei.s1dirsir.bean.BaseBean;
 import com.bawei.s1dirsir.bean.JsonBean;
 import com.bawei.s1dirsir.contract.FoodContract;
 import com.bawei.s1dirsir.model.FoodModel;
@@ -31,5 +32,9 @@ public class FoodRepository extends BaseRepository<FoodModel> {
 
     public Observable<JsonBean> getThere(int parentid){
         return model.getThere(parentid);
+    }
+
+    public Observable<BaseBean> getPaitrculars(){
+        return model.getpaitrcular();
     }
 }

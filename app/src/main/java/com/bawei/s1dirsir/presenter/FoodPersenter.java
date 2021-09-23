@@ -1,6 +1,7 @@
 package com.bawei.s1dirsir.presenter;
 
 
+import com.bawei.s1dirsir.bean.BaseBean;
 import com.bawei.s1dirsir.repository.FoodRepository;
 import com.bw.mvp.presenter.BasePresenter;
 import com.bawei.s1dirsir.bean.JsonBean;
@@ -115,6 +116,33 @@ public class FoodPersenter extends BasePresenter<FoodRepository, FoodContract> {
 
 
 
+    }
+
+    public void initPaitrculars(){
+        repository.getPaitrculars()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<BaseBean>() {
+                    @Override
+                    public void onSubscribe(@NonNull Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(@NonNull BaseBean baseBean) {
+                        view.paitrcularsSuccess(baseBean);
+                    }
+
+                    @Override
+                    public void onError(@NonNull Throwable e) {
+                        view.foodFailed(e);
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
     }
 
 
