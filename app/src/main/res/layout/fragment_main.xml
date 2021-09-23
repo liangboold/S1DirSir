@@ -10,21 +10,18 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/fragment_head_height"
-        android:background="#FE9C2E"
-        android:orientation="horizontal"
-        android:focusableInTouchMode="true">
-        <EditText
+        android:background="#FE9C2E">
+        <TextView
             android:id="@+id/search"
             android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:hint="搜索商品/品类"
-            android:textColorHint="#fff"
-            android:textSize="12dp"
-            android:layout_marginLeft="10dp"
-            android:layout_centerVertical="true"
-            android:layout_toLeftOf="@+id/scan"
+            android:layout_height="36dp"
+            android:text="搜索商品/品类"
+            android:textColor="#fff"
+            android:textSize="21dp"
             android:drawableLeft="@drawable/image_sousuo"
-            android:background="#FE9C2E"></EditText>
+            android:background="#FE9C2E"
+            android:layout_centerVertical="true"
+            android:layout_margin="10dp"></TextView>
 
         <TextView
             android:id="@+id/scan"

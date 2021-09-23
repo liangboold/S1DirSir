@@ -2,18 +2,47 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/image_discount"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_margin="5dp"></ImageView>
+    <RelativeLayout android:layout_width="71.0dip"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/image_discount"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="5dp"></ImageView>
+        <jp.shts.android.library.TriangleLabelView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/WrapWrap"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            app:backgroundColor="#E53935"
+            app:primaryText="折扣"
+            app:primaryTextSize="10.0sp"
+            app:labelTopPadding="10.0dip"
+            app:labelCenterPadding="0.0dip"
+            app:labelBottomPadding="5.0dip"
+            app:corner="rightTop">
+        </jp.shts.android.library.TriangleLabelView>
+    </RelativeLayout>
+
     <TextView
         android:layout_width="60dp"
         android:layout_height="21dp"
-        android:layout_margin="5dp"
         android:text="￥2634.0"
+        android:layout_marginLeft="5dp"
         android:textColor="#F44336"
+        android:textStyle="bold"></TextView>
+    <TextView
+        android:id="@+id/text_zhekou"
+        android:layout_width="63dp"
+        android:layout_height="21dp"
+        android:text="$1000.00"
+        android:layout_marginLeft="5dp"
+        android:textSize="@dimen/sp_12"
+        android:gravity="center"
+        android:textColor="#ccc"
         android:textStyle="bold"></TextView>
 </LinearLayout>

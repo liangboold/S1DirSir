@@ -3,6 +3,7 @@ package com.bawei.s1dirsir.fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -13,6 +14,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.style.StrikethroughSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,7 +67,7 @@ import me.crosswall.lib.coverflow.CoverFlow;
 import me.crosswall.lib.coverflow.core.PageItemClickListener;
 
 public class MainFragment extends BaseMVPFragment implements HomeContract {
-    private EditText search;
+    private TextView search;
     private TextView scan;
     private Banner banner;
     private ArrayList list = new ArrayList();
@@ -114,7 +118,7 @@ public class MainFragment extends BaseMVPFragment implements HomeContract {
 
     @Override
     protected void initView() {
-        search = (EditText) findViewById(R.id.search);
+        search =  findViewById(R.id.search);
         scan = (TextView) findViewById(R.id.scan);
         banner = (Banner) findViewById(R.id.banner);
         gridview = (GridView) findViewById(R.id.gridview);
@@ -171,6 +175,10 @@ public class MainFragment extends BaseMVPFragment implements HomeContract {
 
     private void recyView() {
         DiscountAdapter discountAdapter = new DiscountAdapter(R.layout.discount_item, ImageUrl.arrayList);
+        View inflate = LayoutInflater.from(getContext()).inflate(R.layout.discount_item, null);
+        TextView textView = inflate.findViewById(R.id.text_zhekou);
+//        textView.getPaint().setFlags(Paint. STRIKE_THRU_TEXT_FLAG);
+//        textView.getPaint().setFlags(Paint. STRIKE_THRU_TEXT_FLAG|Paint.ANTI_ALIAS_FLAG);
         rv.setAdapter(discountAdapter);
         rv.setLayoutManager(new LinearLayoutManager(getContext(),RecyclerView.HORIZONTAL,false));
     }
