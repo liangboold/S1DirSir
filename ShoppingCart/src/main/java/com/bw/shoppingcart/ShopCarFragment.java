@@ -15,6 +15,8 @@ import com.bw.mvp.view.BaseMVPFragment;
 import com.bw.utils.ImgUtil;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
+
+import java.util.ArrayList;
 import java.util.List;
 
 import ren.qinc.numberbutton.NumberButton;
@@ -33,6 +35,7 @@ public class ShopCarFragment extends BaseMVPFragment {
 
     @Override
     protected void initData() {
+        //编辑和完成的状态切换事件
         shopTextUpdata.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -80,6 +83,7 @@ public class ShopCarFragment extends BaseMVPFragment {
                     }
                 });
 
+            //item点击状态切换
             checkBox.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -91,6 +95,7 @@ public class ShopCarFragment extends BaseMVPFragment {
         }
     }
 
+    //初始化全选状态和总价
     private void initIscheckAndPrice() {
             int price = 0;
             int count = 0;
@@ -116,6 +121,7 @@ public class ShopCarFragment extends BaseMVPFragment {
         goodRvAdapte.notifyDataSetChanged();
     }
 
+    //初始化适配器
     private void initAdpter() {
         goodRvAdapte = new GoodRvAdapte(goodsList);
         shopRv.setAdapter(goodRvAdapte);
@@ -123,6 +129,7 @@ public class ShopCarFragment extends BaseMVPFragment {
 
     @Override
     protected void initEvent() {
+        //全选事件处理
         shopBtnAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -134,15 +141,21 @@ public class ShopCarFragment extends BaseMVPFragment {
                 initIscheckAndPrice();
             }
         });
+
+        //删除或支付事件
         shopBtnPay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (shopBtnPay.getText().equals("删除")){
+                    ArrayList<GoodsBean> goodsBeans = new ArrayList<>();
                     for (GoodsBean goodsBean : goodsList) {
                         if (goodsBean.getIscheck()){
-                            goodsList.remove(goodsBean);
-                            greenDaoManager.goodsDel(goodsBean);
+                            goodsBeans.add(goodsBean);
                         }
+                    }
+                    for (GoodsBean goodsBean : goodsBeans) {
+                        goodsList.remove(goodsBean);
+                        greenDaoManager.goodsDel(goodsBean);
                     }
                     initIscheckAndPrice();
                     goodRvAdapte.notifyDataSetChanged();

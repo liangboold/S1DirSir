@@ -21,6 +21,7 @@ public class GreenDaoManager {
 
     private static volatile GreenDaoManager greenDaoManager;
 
+    //双重锁实例化对象
     public static synchronized GreenDaoManager getInstance() {
         if (greenDaoManager == null){
             synchronized (GreenDaoManager.class){
@@ -36,14 +37,17 @@ public class GreenDaoManager {
         return goodsBeanDao;
     }
 
+    //查询所有
     public List<GoodsBean> getGoodsList() {
         return goodsBeanDao.loadAll();
     }
 
+    //删除
     public void goodsDel(GoodsBean goodsBean){
         goodsBeanDao.delete(goodsBean);
     }
 
+    //修改
     public void goodsUpdata(GoodsBean goodsBean){
         goodsBeanDao.update(goodsBean);
     }
