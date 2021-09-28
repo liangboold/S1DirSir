@@ -27,11 +27,9 @@
             android:gravity="center"
             android:textColor="#fff"></TextView>
     </LinearLayout>
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_shop"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="敬请期待"
-        android:gravity="center"
-        android:textSize="36dp"></TextView>
+        android:layout_height="match_parent"></androidx.recyclerview.widget.RecyclerView>
 
 </LinearLayout>

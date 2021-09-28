@@ -60,15 +60,17 @@ public class SearchActivity extends BaseMVPActivity {
 
             }
         });
-//        clear.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
+        clear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 //                GreenDaoManager.getUserDao().deleteAll();
 //                List<User> users = GreenDaoManager.getUserDao().loadAll();
-//                searchAdapter = new SearchAdapter(R.layout.item_search,users);
+//                searchAdapter = new SearchAdapter(R.layout.item_search,list);
 //                recyclerView.setAdapter(searchAdapter);
-//            }
-//        });
+                list.clear();
+                searchAdapter.notifyDataSetChanged();
+            }
+        });
 
     }
 
