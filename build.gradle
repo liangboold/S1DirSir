@@ -8,6 +8,7 @@ buildscript {
     repositories {
         google()
         maven { url "https://jitpack.io" }//需要
+        maven { url 'https://repo1.maven.org/maven2/' }
         jcenter()
         maven { //热修复仓库
             url 'http://maven.aliyun.com/nexus/content/repositories/releases/'
@@ -28,11 +29,15 @@ allprojects {
     repositories {
         google()
         maven { url "https://jitpack.io" }//需要
+        maven { url 'https://repo1.maven.org/maven2/' }
         mavenCentral()
         maven {//热修复仓库
             url 'http://maven.aliyun.com/nexus/content/repositories/releases/'
         }
         jcenter() // Warning: this repository is going to shut down soon
+        flatDir{
+            dirs 'libs'
+        }
     }
 }
 

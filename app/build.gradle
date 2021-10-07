@@ -1,5 +1,6 @@
 plugins {
     id 'com.android.application'
+    id 'org.greenrobot.greendao' // 1.apply plugin
 }
 apply plugin: 'kotlin-android'
 apply plugin: 'com.aliyun.ams.emas-services'
@@ -31,11 +32,31 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    greendao {
+        // 指定数据库schema版本号，迁移等操作会用到
+        schemaVersion 1
+        // 设置生成数据库文件的目录，默认是在build中，可以将生成的文件放到我们的java目录中
+        targetGenDir 'src/main/java'
+        // 设置生成的数据库相关文件的包名，默认为entity所在的包名
+        daoPackage 'com.bawei.s1dirsir.db'
+    }
 }
 
 dependencies {
-    implementation 'com.google.dagger:dagger:2.23.2'
 
+    //友盟基础库相关依赖（必须）
+    api 'com.umeng.umsdk:common:9.3.8'
+    implementation 'com.umeng.umsdk:asms:1.2.2'
+    implementation  'com.umeng.umsdk:common:9.3.8'// 必选
+    implementation  'com.umeng.umsdk:asms:1.2.2'// 必选0-
+
+    implementation  'com.umeng.umsdk:common:9.1.0' // (必选)
+    implementation  'com.umeng.umsdk:asms:1.1.3' // asms包依赖(必选)
+    implementation 'com.umeng.umsdk:crash:0.0.4' // native crash包依赖(必选)
+
+
+    implementation 'com.google.dagger:dagger:2.23.2'
+    implementation 'org.greenrobot:greendao:3.3.0' // 2.add library
     implementation project(path: ':Utils')
 
     implementation project(path: ':Mvp')
@@ -48,6 +69,14 @@ dependencies {
     implementation project(path: ':DI')
     implementation files('libs\\BaiduLBS_Android.jar')
     implementation files('libs\\hyphenatechat_3.7.2.jar')
+    implementation files('libs\\accs_sdk_aranger-1.0.6.jar')
+    implementation files('libs\\accs_sdk_taobao-3.4.2.7-umeng.jar')
+    implementation files('libs\\alicloud-android-beacon-no-net-1.0.5.jar')
+    implementation files('libs\\alicloud-android-httpdns-1.3.2.3-no-bssid-release.jar')
+    implementation files('libs\\alicloud-android-sdk-utils-no-ut-2.0.0.jar')
+    implementation files('libs\\networksdk-3.5.8-open.jar')
+    implementation files('libs\\tnet4android-3.1.14.10-open.jar')
+    implementation files('libs\\umeng-push-6.3.3.jar')
 
     annotationProcessor 'com.google.dagger:dagger-compiler:2.23.2'
     implementation 'io.reactivex.rxjava2:rxjava:2.2.6'//RxJava依赖
@@ -58,6 +87,7 @@ dependencies {
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.22'//万能适配器
     implementation 'com.flyco.tablayout:FlycoTabLayout_Lib:2.0.2@aar'    //flycotablayout
     implementation 'com.github.shts:TriangleLabelView:1.1.2'
+    implementation 'com.lzy.net:okgo:3.0.4'//okgo依赖
     implementation 'com.github.pinguo-zhouwei:MZBannerView:v2.0.2'
     implementation 'com.ashokvarma.android:bottom-navigation-bar:2.0.5'
     implementation 'androidx.appcompat:appcompat:1.2.0'

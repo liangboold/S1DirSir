@@ -22,6 +22,7 @@
             <option value="$PROJECT_DIR$/SpFrame" />
             <option value="$PROJECT_DIR$/Utils" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/pay" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

@@ -7,6 +7,17 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.BROADCAST_PACKAGE_ADDED"/>
+    <uses-permission android:name="android.permission.BROADCAST_PACKAGE_CHANGED"/>
+    <uses-permission android:name="android.permission.BROADCAST_PACKAGE_INSTALL"/>
+    <uses-permission android:name="android.permission.BROADCAST_PACKAGE_REPLACED"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
     <uses-permission android:name="android.permission.READ_LOGS"
         tools:ignore="ProtectedPermissions" />
     <!-- 外部存储读权限，调试工具加载本地补丁需要 -->
@@ -19,6 +30,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.S1DirSir">
+        <activity android:name=".activity.OrderFormActivity"></activity>
         <activity android:name=".activity.NewAddressActivity"></activity>
         <activity android:name=".activity.AddressActivity" />
         <activity android:name=".activity.MoerActivity" />
@@ -38,6 +50,7 @@
             </intent-filter>
         </activity>
 
+
         <meta-data
             android:name="com.taobao.android.hotfix.IDSECRET"
             android:value="333548224-1" /><!-- AppId -->
@@ -48,6 +61,148 @@
             android:name="com.taobao.android.hotfix.RSASECRET"
             android:value="MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDL9qRfpqgh0syTxf5wXeJNPbrcLftYn/9b2IeLq/OFk9Z62HAxGWWfoQpTaPRZl8T0bqDSpfz9KHKSS/TvrsXQf2YpdjywFPLkmCIiDZ+5isQMm70wJlQZJk3ore/MrPmrSKyLWkYOCEasDzausSL+L7EFkdkt0Or45eP08QOwU4c2YKUQTXTxo8AKRKb+G5zwS8CJXVe+uXZT76S/C26jzJYL9ePi52AKAmKuEoReFx2MxViLowTErgzXON/YeMUfqi+rgKqSFhh+vfWITSACsI96F8A+NN1/NTmSiERYZlrwaxACkJVQczImIXb0NxUtjsa3mZhIXWz5fPhq5rOHAgMBAAECggEAHi3LWn/NRtvq+z6DjFrH3kfw+x0uoIlj/lIGlEsICE68oIaf6xPn7nukjHzuEsebE9O+pgx7Z3XxpeXpQwGoMVZ4ZlAhYKho3BwKiOFdLdXzdi4hCxvQu7voMTJzVeSOOKLTLPdZgEAHPPQvUh/Rnqyt07Yl3VqZOeTCGv8CXbdqNrC2jEKlSiBcLRx/gKo9mUQNWoMLbeppVPA+9KovVhl1yZRfL32NCQbqLKpRHU3ANczQWmkaUqgqV5zM64oa47+0PFP3bpmCGy1V9nvwQXttYAhk1/84rym5uVDEIrAWlikEfsH8nWqYoES54b9m1zfpYZYIvjXT/pyIFd7/gQKBgQD+5qUqNMDJg7FZVP+LW5qccbg31E+14iM5uGWcUw93VQz4lMWYILu6nmETyagBDMIFhogGQtd9h8m7QQlG6R/8T4AqwzMZSyzD/363h5zyptCS0C2e2VP1ueaSzHvlD2iw5sdNxIR2z/PraIgWUNEUZzEveU+hmmmeGOlIYmMuxwKBgQDM18Xmzr2MOxVfg84beNoD90JxiiSTSjrcL5MeBPEQFvHHJmaUkrXcvUlP2o5RKvoUa2CCKvo8nJQkZVehy91afeLl8IIOjlnoNoDr51jM4eprMCNKHmpaC7s8wB8u9hbXrTKXZreGIyr68zVD2ZBHuLJsnubSviWXy6C8uJKVQQKBgQCDDtOc/8Kf2bY12B4L6O11woKVMfRJ8BtscgLMfWhWUsR4iwWNUkczjHsdUXGwGH8pmCIYFgX15Psz7Bx4+SQY9kdPtU1wk9ZQb+0XMALiQCK9WYwbQGKK1SpYEAsjmuiZDA8tTP1OmV0wjG5sCuF1PBlt71GiJWJohyZqsSuNwQKBgAbQVqDq15tGi9t1gvGe/4GKRAeK1NShb3vLiVVCTNKAMOKzAE6I4svI8Btb5cgFafQr7jXmQBSsELF1PYkAQwizj0yex3S8f3kd9wPh2i5WhXmzTDk28cq1ATFwIplpTjE2baxjmk839EIMvQTYw9fe6PB8CKmR8aYu+9XLPfUBAoGAKP93I+oew1AD5pgimpDJUFm5bsgu2jRuomaT6vd9GtG86oWw3YD063n4zlr4q4hGr3MBniqR1KooSeNiIgSCO7BUf+m2i0mpuzXMP/3inKeku1GnSC7LRSMr2hX+n9sCfwCt/BbfVYw9blXTGgkKeNuRvR16UwPW0I0ilXLi7Nc=" />
             <!-- RSA秘钥 -->
+        <service
+            android:name="com.taobao.accs.ChannelService"
+            android:exported="true"
+            android:process=":channel">
+            <intent-filter>
+                <action android:name="com.taobao.accs.intent.action.SERVICE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.taobao.accs.intent.action.ELECTION" />
+            </intent-filter>
+        </service>
+
+        <service
+            android:name="com.taobao.accs.data.MsgDistributeService"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.taobao.accs.intent.action.RECEIVE" />
+            </intent-filter>
+        </service>
+
+        <receiver
+            android:name="com.taobao.accs.EventReceiver"
+            android:process=":channel">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+                <data android:scheme="package" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name="com.taobao.accs.ServiceReceiver"
+            android:process=":channel">
+            <intent-filter>
+                <action android:name="com.taobao.accs.intent.action.COMMAND" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.taobao.accs.intent.action.START_FROM_AGOO" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.taobao.accs.internal.AccsJobService"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:process=":channel" />
+
+        <service
+            android:name="com.taobao.accs.ChannelService$KernelService"
+            android:process=":channel" />
+
+        <service
+            android:name="org.android.agoo.accs.AgooService"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.taobao.accs.intent.action.RECEIVE" />
+            </intent-filter>
+        </service>
+
+        <service
+            android:name="com.umeng.message.UmengIntentService"
+            android:exported="true"
+            android:process=":channel">
+            <intent-filter>
+                <action android:name="org.agoo.android.intent.action.RECEIVE" />
+            </intent-filter>
+        </service>
+
+        <service
+            android:name="com.umeng.message.XiaomiIntentService"
+            android:exported="true"
+            android:process=":channel">
+            <intent-filter>
+                <action android:name="org.agoo.android.intent.action.RECEIVE" />
+            </intent-filter>
+        </service>
+
+        <receiver
+            android:name="com.taobao.agoo.AgooCommondReceiver"
+            android:exported="true"
+            android:process=":channel">
+            <intent-filter>
+                <action android:name="${applicationId}.intent.action.COMMAND" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.umeng.message.UmengMessageIntentReceiverService"
+            android:exported="true"
+            android:process=":channel">
+            <intent-filter>
+                <action android:name="org.android.agoo.client.MessageReceiverService" />
+            </intent-filter>
+        </service>
+
+        <receiver
+            android:name="com.umeng.message.NotificationProxyBroadcastReceiver"
+            android:exported="false" />
+
+        <service
+            android:name="com.umeng.message.UmengMessageCallbackHandlerService"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE">
+            <intent-filter>
+                <action android:name="com.umeng.messge.registercallback.action" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.umeng.message.enablecallback.action" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.umeng.message.disablecallback.action" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.umeng.message.message.handler.action" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.umeng.message.message.sendmessage.action" />
+            </intent-filter>
+        </service>
+
+        <service
+            android:name="com.umeng.message.UmengDownloadResourceService"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+
+        <provider
+            android:name="com.umeng.message.provider.MessageProvider"
+            android:authorities="${applicationId}.umeng.message"
+            android:exported="false">
+            <grant-uri-permission android:pathPattern=".*" />
+        </provider>
     </application>
 
 </manifest>

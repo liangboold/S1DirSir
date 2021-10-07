@@ -5,6 +5,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -13,6 +14,10 @@ import com.bawei.s1dirsir.MyBtnEntity;
 import com.bawei.s1dirsir.R;
 import com.bawei.s1dirsir.adapter.FragmentAdapter;
 import com.bawei.s1dirsir.bean.BaseBean;
+import com.bawei.s1dirsir.db.DaoMaster;
+import com.bawei.s1dirsir.db.DaoSession;
+import com.bawei.s1dirsir.db.User;
+import com.bawei.s1dirsir.db.UserDao;
 import com.bawei.s1dirsir.fragment.DetailsFragment;
 import com.bawei.s1dirsir.fragment.ShopFragment;
 import com.bw.database.user.GoodsBean;
@@ -118,5 +123,17 @@ public class DetailsActivity extends BaseMVPActivity {
             }
         }
         Toast.makeText(this, "添加成功", Toast.LENGTH_SHORT).show();
+        SQLiteDatabase order = new DaoMaster.DevOpenHelper(this, "order").getWritableDatabase();
+        DaoSession daoSession = new DaoMaster(order).newSession();
+        UserDao userDao = daoSession.getUserDao();
+        User user = new User();
+        user.setTitle(data.getGoodsDesc());
+        user.setStr(data.getGoodsDefaultSku());
+        user.setPic(data.getGoodsDefaultIcon());
+        user.setPrice(data.getGoodsDefaultPrice());
+        userDao.insert(user);
+
+
+
     }
 }

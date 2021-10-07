@@ -58,7 +58,7 @@ public class ClassFragment extends BaseMVPFragment implements FoodContract {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
 
-
+                    //循环
                 for (int i = 0; i < data.size(); i++) {
                     data.get(i).setCheck(false);
                 }
