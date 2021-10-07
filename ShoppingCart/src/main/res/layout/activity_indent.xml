@@ -34,23 +34,24 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         >
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="选择收货人"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:text="哈哈\t秀儿市"
+            android:textSize="24dp"
             android:textStyle="bold"
-            android:gravity="center"
+            android:gravity="center_vertical"
             ></TextView>
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="＞"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="秀儿大街256号"
             android:textStyle="bold"
-            android:textSize="24dp"
-            android:gravity="right"
-            android:paddingTop="@dimen/dp_10"
+            android:gravity="center_vertical"
             ></TextView>
     </LinearLayout>
     <RelativeLayout
