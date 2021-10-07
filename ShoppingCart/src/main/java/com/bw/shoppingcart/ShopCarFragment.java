@@ -33,7 +33,7 @@ public class ShopCarFragment extends BaseMVPFragment {
     GreenDaoManager greenDaoManager = GreenDaoManager.getInstance();
     private List<GoodsBean> goodsList;
     private GoodRvAdapte goodRvAdapte;
-
+    ArrayList<GoodsBean> goodsBeans;
 
     @Override
     protected void initData() {
@@ -154,8 +154,28 @@ public class ShopCarFragment extends BaseMVPFragment {
         shopBtnPay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(shopBtnPay.getText().equals("去结算")){
+                    if (shopBtnAll.isChecked()){
+                        Intent intent = new Intent(getActivity(), IndentActivity.class);
+                        for (GoodsBean goodsBean : goodsList) {
+                            if (goodsBean.getIscheck()){
+                                goodsBeans.add(goodsBean);
+                            }
+                        }
+                        for (GoodsBean goodsBean : goodsBeans) {
+                            goodsList.remove(goodsBean);
+                            greenDaoManager.goodsDel(goodsBean);
+                        }
+                        initIscheckAndPrice();
+                        goodRvAdapte.notifyDataSetChanged();
+                        startActivity(intent);
+                    }else {
+                        Toast.makeText(getActivity(), "请选择提交的数据", Toast.LENGTH_SHORT).show();
+                    }
+
+                }
                 if (shopBtnPay.getText().equals("删除")){
-                    ArrayList<GoodsBean> goodsBeans = new ArrayList<>();
+                    goodsBeans = new ArrayList<>();
                     for (GoodsBean goodsBean : goodsList) {
                         if (goodsBean.getIscheck()){
                             goodsBeans.add(goodsBean);
