@@ -9,12 +9,17 @@ import android.widget.TextView;
 import com.bawei.s1dirsir.R;
 import com.bawei.s1dirsir.activity.MainActivity;
 import com.bawei.s1dirsir.activity.OrderFormActivity;
+import android.widget.RelativeLayout;
+
+import com.bawei.s1dirsir.R;
+import com.bawei.s1dirsir.activity.AddressActivity;
 import com.bw.mvp.view.BaseMVPFragment;
 
 public class MyFragment extends BaseMVPFragment {
 
     private ImageView user;
     private TextView orderForm;
+    private RelativeLayout receiv;
 
     @Override
     protected void initData() {
@@ -29,7 +34,12 @@ public class MyFragment extends BaseMVPFragment {
 
     @Override
     protected void initEvent() {
-
+        receiv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), AddressActivity.class));
+            }
+        });
     }
 
     @Override
@@ -37,6 +47,8 @@ public class MyFragment extends BaseMVPFragment {
 
         user = (ImageView) findViewById(R.id.user);
         orderForm = (TextView) findViewById(R.id.order_form);
+        user = (ImageView) findViewById(R.id.user);
+        receiv = (RelativeLayout) findViewById(R.id.receiv);
     }
 
     @Override

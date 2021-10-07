@@ -1,5 +1,6 @@
 package com.bw.shoppingcart;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -10,6 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bw.database.user.GoodsBean;
+import com.bw.database.user.GoodsBeanDao;
 import com.bw.database.user.GreenDaoManager;
 import com.bw.mvp.view.BaseMVPFragment;
 import com.bw.utils.ImgUtil;
@@ -53,7 +55,7 @@ public class ShopCarFragment extends BaseMVPFragment {
         shopBtnPay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Toast.makeText(getActivity(), "订单添加成功", Toast.LENGTH_SHORT).show();
             }
         });
     }

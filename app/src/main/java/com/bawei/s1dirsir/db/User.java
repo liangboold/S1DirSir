@@ -66,4 +66,6 @@ public class User {
     public void setPrice(String Price) {
         this.Price = Price;
     }
+
+    
 } 

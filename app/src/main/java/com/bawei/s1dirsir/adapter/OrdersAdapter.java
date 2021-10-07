@@ -1,5 +1,8 @@
-package com.bawei.s1dirsir.fragment;
+package com.bawei.s1dirsir.adapter;
 
+import android.content.Context;
+
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.bawei.s1dirsir.R;
@@ -7,6 +10,8 @@ import com.bawei.s1dirsir.db.User;
 import com.bw.utils.ImgUtil;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
@@ -33,4 +38,6 @@ public class OrdersAdapter extends BaseQuickAdapter<User, BaseViewHolder> {
     ImgUtil.imgLoad(item.getPic(),helper.getView(R.id.order_img));
 
     }
+
+
 }

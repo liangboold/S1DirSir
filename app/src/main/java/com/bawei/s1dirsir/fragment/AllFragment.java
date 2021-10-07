@@ -1,13 +1,12 @@
 package com.bawei.s1dirsir.fragment;
 
 import android.database.sqlite.SQLiteDatabase;
-import android.view.View;
-import android.widget.Button;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bawei.s1dirsir.R;
+import com.bawei.s1dirsir.adapter.OrdersAdapter;
 import com.bawei.s1dirsir.db.DaoMaster;
 import com.bawei.s1dirsir.db.DaoSession;
 import com.bawei.s1dirsir.db.User;
@@ -36,6 +35,7 @@ public class AllFragment extends BaseMVPFragment {
         OrdersAdapter ordersAdapter = new OrdersAdapter(R.layout.order_item, users);
         allRv.setAdapter(ordersAdapter);
         allRv.setLayoutManager(new LinearLayoutManager(getActivity()));
+
 
     }
 

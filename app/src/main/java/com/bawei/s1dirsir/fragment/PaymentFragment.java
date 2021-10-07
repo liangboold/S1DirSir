@@ -1,66 +1,55 @@
 package com.bawei.s1dirsir.fragment;
 
-import android.os.Bundle;
+import android.database.sqlite.SQLiteDatabase;
 
-import androidx.fragment.app.Fragment;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.bawei.s1dirsir.R;
+import com.bawei.s1dirsir.adapter.OrdersAdapter;
+import com.bawei.s1dirsir.db.DaoMaster;
+import com.bawei.s1dirsir.db.DaoSession;
+import com.bawei.s1dirsir.db.User;
+import com.bawei.s1dirsir.db.UserDao;
+import com.bw.mvp.view.BaseMVPFragment;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link PaymentFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class PaymentFragment extends Fragment {
+import java.util.List;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+public class PaymentFragment extends BaseMVPFragment {
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
-    public PaymentFragment() {
-        // Required empty public constructor
-    }
+    private RecyclerView payRv;
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment PaymentFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static PaymentFragment newInstance(String param1, String param2) {
-        PaymentFragment fragment = new PaymentFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
+    @Override
+    protected void injectCompoent() {
+
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+    protected void initData() {
+        SQLiteDatabase order = new DaoMaster.DevOpenHelper(getActivity(), "order").getWritableDatabase();
+        DaoSession daoSession = new DaoMaster(order).newSession();
+        UserDao userDao = daoSession.getUserDao();
+        List<User> users = userDao.loadAll();
+
+        OrdersAdapter ordersAdapter = new OrdersAdapter(R.layout.order_item, users);
+        payRv.setAdapter(ordersAdapter);
+        payRv.setLayoutManager(new LinearLayoutManager(getActivity()));
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_payment, container, false);
+    protected void initEvent() {
+
+    }
+
+    @Override
+    protected void initView() {
+
+        payRv = (RecyclerView) findViewById(R.id.pay_rv);
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.fragment_payment;
     }
 }

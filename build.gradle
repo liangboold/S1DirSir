@@ -8,6 +8,7 @@ buildscript {
     repositories {
         google()
         maven { url "https://jitpack.io" }//需要
+        maven { url 'https://repo1.maven.org/maven2/' }
         jcenter()
         mavenCentral()
     }
@@ -24,6 +25,7 @@ allprojects {
     repositories {
         google()
         maven { url "https://jitpack.io" }//需要
+        maven { url 'https://repo1.maven.org/maven2/' }
         mavenCentral()
         jcenter() // Warning: this repository is going to shut down soon
     }
