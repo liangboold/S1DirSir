@@ -1,5 +1,6 @@
 plugins {
     id 'com.android.application'
+    id 'org.greenrobot.greendao' // 1.apply plugin
 }
 apply plugin: 'kotlin-android'
 
@@ -27,11 +28,19 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    greendao {
+        // 指定数据库schema版本号，迁移等操作会用到
+        schemaVersion 1
+        // 设置生成数据库文件的目录，默认是在build中，可以将生成的文件放到我们的java目录中
+        targetGenDir 'src/main/java'
+        // 设置生成的数据库相关文件的包名，默认为entity所在的包名
+        daoPackage 'com.bawei.s1dirsir.db'
+    }
 }
 
 dependencies {
     implementation 'com.google.dagger:dagger:2.23.2'
-
+    implementation 'org.greenrobot:greendao:3.3.0' // 2.add library
     implementation project(path: ':Utils')
 
     implementation project(path: ':Mvp')
@@ -55,6 +64,7 @@ dependencies {
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.22'//万能适配器
     implementation 'com.flyco.tablayout:FlycoTabLayout_Lib:2.0.2@aar'    //flycotablayout
     implementation 'com.github.shts:TriangleLabelView:1.1.2'
+    implementation 'com.lzy.net:okgo:3.0.4'//okgo依赖
     implementation 'com.github.pinguo-zhouwei:MZBannerView:v2.0.2'
     implementation 'com.ashokvarma.android:bottom-navigation-bar:2.0.5'
     implementation 'androidx.appcompat:appcompat:1.2.0'

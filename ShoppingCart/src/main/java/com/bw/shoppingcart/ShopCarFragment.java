@@ -50,6 +50,12 @@ public class ShopCarFragment extends BaseMVPFragment {
                 }
             }
         });
+        shopBtnPay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
     private class GoodRvAdapte extends BaseQuickAdapter<GoodsBean, BaseViewHolder> {

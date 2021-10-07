@@ -1,22 +1,30 @@
 package com.bawei.s1dirsir.fragment;
 
 
+import android.content.Intent;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bawei.s1dirsir.R;
+import com.bawei.s1dirsir.activity.MainActivity;
+import com.bawei.s1dirsir.activity.OrderFormActivity;
 import com.bw.mvp.view.BaseMVPFragment;
-
-import java.util.List;
-
-import javax.inject.Inject;
 
 public class MyFragment extends BaseMVPFragment {
 
+    private ImageView user;
+    private TextView orderForm;
+
     @Override
     protected void initData() {
-
+    orderForm.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent = new Intent(getActivity(), OrderFormActivity.class);
+            startActivity(intent);
+        }
+    });
     }
 
     @Override
@@ -27,6 +35,8 @@ public class MyFragment extends BaseMVPFragment {
     @Override
     protected void initView() {
 
+        user = (ImageView) findViewById(R.id.user);
+        orderForm = (TextView) findViewById(R.id.order_form);
     }
 
     @Override

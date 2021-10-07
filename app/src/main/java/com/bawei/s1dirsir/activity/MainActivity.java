@@ -127,7 +127,7 @@ public class MainActivity extends BaseMVPActivity<FoodPersenter> implements Food
     public void foodSuccess(JsonBean jsonBean) {
         ArrayList<JsonBean.DataBean> data = (ArrayList<JsonBean.DataBean>) jsonBean.getData();
         getIntent().putParcelableArrayListExtra("data",data);
-    }
+    }//
 
     @Override
     public void classSuccess(JsonBean jsonBean) {
