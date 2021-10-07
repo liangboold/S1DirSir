@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.NewAddressActivity">
+
+    <RelativeLayout
+        android:layout_marginTop="21dp"
+        android:background="#FE9C2E"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/image_back"
+            android:layout_margin="12dp"></ImageView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="地址管理"
+            android:textColor="#fff"
+            android:layout_centerInParent="true"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:text="收货人："
+                android:textColor="@color/black"
+                android:layout_margin="@dimen/dp_10"/>
+
+            <EditText
+                android:id="@+id/name"
+                android:background="@null"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/dp_40"
+                android:layout_margin="@dimen/dp_10"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#000"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:text="联系方式："
+                android:textColor="@color/black"
+                android:layout_margin="@dimen/dp_10"/>
+
+            <EditText
+                android:id="@+id/phone"
+                android:background="@null"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/dp_40"
+                android:layout_margin="@dimen/dp_10"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#000"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:text="详细地址："
+                android:textColor="@color/black"
+                android:layout_margin="@dimen/dp_10"/>
+
+            <EditText
+                android:id="@+id/sdetails"
+                android:background="@null"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/dp_40"
+                android:layout_margin="@dimen/dp_10"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_40"
+        android:layout_margin="20dp"
+        android:text="保存"
+        android:onClick="save"
+        android:textSize="18dp"
+        android:textColor="#fff"
+        android:background="#FD9C2F"/>
+</LinearLayout>

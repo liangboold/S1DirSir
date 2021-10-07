@@ -98,25 +98,30 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="#ccc"></TextView>
+
     <RelativeLayout
+        android:id="@+id/receiv"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:gravity="center">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="收货管理"
-            android:textSize="15dp"
             android:layout_margin="10dp"
-            android:drawableLeft="@drawable/shouhuoguanli"></TextView>
+            android:drawableLeft="@drawable/shouhuoguanli"
+            android:text="收货管理"
+            android:textSize="15dp"></TextView>
+
         <ImageView
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@drawable/jiantou"
             android:layout_alignParentRight="true"
-            android:layout_margin="@dimen/dp_10"></ImageView>
+            android:layout_margin="@dimen/dp_10"
+            android:src="@drawable/jiantou"></ImageView>
     </RelativeLayout>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="1dp"

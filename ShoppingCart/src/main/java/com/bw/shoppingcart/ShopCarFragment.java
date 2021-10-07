@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bw.database.user.GoodsBean;
+import com.bw.database.user.GoodsBeanDao;
 import com.bw.database.user.GreenDaoManager;
 import com.bw.mvp.view.BaseMVPFragment;
 import com.bw.utils.ImgUtil;

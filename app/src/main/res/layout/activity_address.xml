@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.AddressActivity">
+
+    <RelativeLayout
+        android:layout_marginTop="21dp"
+        android:background="#FE9C2E"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/image_back"
+            android:layout_margin="12dp"></ImageView>
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="地址管理"
+            android:textColor="#fff"
+            android:layout_centerInParent="true"/>
+
+    </RelativeLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:id="@+id/addressrv"
+        android:layout_height="0dp"
+        android:overScrollMode="never"
+        android:layout_weight="1"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_40"
+        android:layout_margin="20dp"
+        android:text="新建地址"
+        android:onClick="add"
+        android:textSize="18dp"
+        android:textColor="#fff"
+        android:background="#FD9C2F"/>
+</LinearLayout>
