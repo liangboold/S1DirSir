@@ -157,17 +157,17 @@ public class ShopCarFragment extends BaseMVPFragment {
                 if(shopBtnPay.getText().equals("去结算")){
                     if (shopBtnAll.isChecked()){
                         Intent intent = new Intent(getActivity(), IndentActivity.class);
-                        for (GoodsBean goodsBean : goodsList) {
-                            if (goodsBean.getIscheck()){
-                                goodsBeans.add(goodsBean);
-                            }
-                        }
-                        for (GoodsBean goodsBean : goodsBeans) {
-                            goodsList.remove(goodsBean);
-                            greenDaoManager.goodsDel(goodsBean);
-                        }
-                        initIscheckAndPrice();
-                        goodRvAdapte.notifyDataSetChanged();
+//                        for (GoodsBean goodsBean : goodsList) {
+//                            if (goodsBean.getIscheck()){
+//                                goodsBeans.add(goodsBean);
+//                            }
+//                        }
+//                        for (GoodsBean goodsBean : goodsBeans) {
+//                            goodsList.remove(goodsBean);
+//                            greenDaoManager.goodsDel(goodsBean);
+//                        }
+//                        initIscheckAndPrice();
+//                        goodRvAdapte.notifyDataSetChanged();
                         startActivity(intent);
                     }else {
                         Toast.makeText(getActivity(), "请选择提交的数据", Toast.LENGTH_SHORT).show();
